@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <!-- Metallic Gold Gradients -->
+    <linearGradient id="sealGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF8D6"/>
+      <stop offset="25%" stop-color="#E2BA4B"/>
+      <stop offset="50%" stop-color="#AA771C"/>
+      <stop offset="75%" stop-color="#FCE492"/>
+      <stop offset="100%" stop-color="#805007"/>
+    </linearGradient>
+
+    <radialGradient id="sealGoldRadial" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFFDF0"/>
+      <stop offset="40%" stop-color="#F3CE65"/>
+      <stop offset="75%" stop-color="#C59324"/>
+      <stop offset="100%" stop-color="#704403"/>
+    </radialGradient>
+
+    <linearGradient id="sealNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18335C"/>
+      <stop offset="50%" stop-color="#081933"/>
+      <stop offset="100%" stop-color="#020914"/>
+    </linearGradient>
+
+    <linearGradient id="sealCrimson" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F03865"/>
+      <stop offset="50%" stop-color="#D3224D"/>
+      <stop offset="100%" stop-color="#7C0823"/>
+    </linearGradient>
+
+    <filter id="sealShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"/>
+      <feFlood flood-color="#000" flood-opacity="0.3"/>
+      <feComposite in2="shadowDiff" operator="in"/>
+      <feComposite in2="SourceGraphic" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Starburst / Scalloped Ring -->
+  <g filter="url(#sealShadow)">
+    <!-- Outer 24-point Jubilee Starburst -->
+    <circle cx="120" cy="120" r="114" fill="url(#sealGold)"/>
+    <circle cx="120" cy="120" r="109" fill="url(#sealNavy)"/>
+    <circle cx="120" cy="120" r="105" fill="none" stroke="url(#sealGold)" stroke-width="1.5" stroke-dasharray="3 2"/>
+
+    <!-- Circular Text Ring -->
+    <!-- Path for top text -->
+    <path id="topTextPath" d="M 30 120 A 90 90 0 0 1 210 120" fill="none"/>
+    <!-- Path for bottom text -->
+    <path id="bottomTextPath" d="M 210 120 A 90 90 0 0 1 30 120" fill="none"/>
+
+    <!-- Text: UNIVERSITY OF KARACHI -->
+    <text font-family="'Playfair Display', Georgia, serif" font-weight="900" font-size="12.5" fill="url(#sealGold)" letter-spacing="2">
+      <textPath href="#topTextPath" startOffset="50%" text-anchor="middle">
+        ★ UNIVERSITY OF KARACHI ★
+      </textPath>
+    </text>
+
+    <!-- Text: 75 YEARS OF ACADEMIC LEADERSHIP -->
+    <text font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="8.8" fill="#FFFFFF" letter-spacing="1.4">
+      <textPath href="#bottomTextPath" startOffset="50%" text-anchor="middle">
+        • 75 YEARS OF ACADEMIC LEADERSHIP •
+      </textPath>
+    </text>
+
+    <!-- Inner Core Circle -->
+    <circle cx="120" cy="120" r="74" fill="url(#sealNavy)" stroke="url(#sealGold)" stroke-width="2.5"/>
+    <circle cx="120" cy="120" r="70" fill="url(#sealCrimson)" opacity="0.15"/>
+
+    <!-- Laurel Wreath Inside Core -->
+    <g fill="url(#sealGold)" opacity="0.9">
+      <!-- Left Leaves -->
+      <path d="M72,125 C68,110 72,95 82,82 C83,86 86,90 90,92 C86,83 89,75 97,68 C96,73 99,78 104,80 C101,72 107,64 116,60 C114,65 115,70 118,74 C113,74 108,79 106,85 C103,80 97,78 93,80 C93,87 96,93 102,97 C96,95 91,96 88,100 C90,107 97,112 104,114 C98,115 93,119 92,125 Z"/>
+      <!-- Right Leaves -->
+      <path d="M168,125 C172,110 168,95 158,82 C157,86 154,90 150,92 C154,83 151,75 143,68 C144,73 141,78 136,80 C139,72 133,64 124,60 C126,65 125,70 122,74 C127,74 132,79 134,85 C137,80 143,78 147,80 C147,87 144,93 138,97 C144,95 149,96 152,100 C150,107 143,112 136,114 C142,115 147,119 148,125 Z"/>
+    </g>
+
+    <!-- Centerpiece: Bold Stylized "75" -->
+    <g transform="translate(120, 115)">
+      <!-- Central Number 75 -->
+      <text x="0" y="8" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="900" font-size="46" fill="url(#sealGoldRadial)" stroke="#4A2E02" stroke-width="0.5" filter="url(#innerGlow)">
+        75
+      </text>
+
+      <!-- YEARS text -->
+      <text x="0" y="24" text-anchor="middle" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="11" fill="#FFFFFF" letter-spacing="3.5">
+        YEARS
+      </text>
+
+      <!-- Platinum Jubilee -->
+      <text x="0" y="-30" text-anchor="middle" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="7.5" fill="url(#sealGold)" letter-spacing="2">
+        PLATINUM JUBILEE
+      </text>
+    </g>
+
+    <!-- Bottom Ribbon with 1951 - 2026 -->
+    <g transform="translate(120, 178)">
+      <!-- Left Ribbon Fold -->
+      <path d="M-60,0 L-76,-10 L-68,14 L-52,8 Z" fill="#6A0C20" stroke="url(#sealGold)" stroke-width="0.8"/>
+      <!-- Right Ribbon Fold -->
+      <path d="M60,0 L76,-10 L68,14 L52,8 Z" fill="#6A0C20" stroke="url(#sealGold)" stroke-width="0.8"/>
+
+      <!-- Front Ribbon Plaque -->
+      <path d="M-56,-6 L56,-6 C62,-6 65,0 62,6 L56,16 C53,20 48,22 42,22 L-42,22 C-48,22 -53,20 -56,16 L-62,6 C-65,0 -62,-6 -56,-6 Z" 
+            fill="url(#sealCrimson)" stroke="url(#sealGold)" stroke-width="1.8"/>
+
+      <!-- Inner Ribbon Stitched Line -->
+      <path d="M-50,-2 L50,-2 C54,-2 56,1 54,6 L50,14 C48,16 45,17 40,17 L-40,17 C-45,17 -48,16 -50,14 L-54,6 C-56,1 -54,-2 -50,-2 Z" 
+            fill="none" stroke="#FFE79A" stroke-width="0.6" stroke-dasharray="2 1.5"/>
+
+      <text x="0" y="11.5" text-anchor="middle" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="11.5" fill="#FFFFFF" letter-spacing="2.5">
+        1951 – 2026
+      </text>
+    </g>
+
+    <!-- Crown Star on Top -->
+    <polygon points="120,38 122.5,43.5 128.5,43.5 123.5,47 125.5,52.5 120,49 114.5,52.5 116.5,47 111.5,43.5 117.5,43.5" 
+             fill="url(#sealGold)"/>
+  </g>
+</svg>

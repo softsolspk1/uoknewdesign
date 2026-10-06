@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 120" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2B2" />
+      <stop offset="30%" stop-color="#E5A93C" />
+      <stop offset="60%" stop-color="#B8860B" />
+      <stop offset="85%" stop-color="#F3E5AB" />
+      <stop offset="100%" stop-color="#996515" />
+    </linearGradient>
+
+    <linearGradient id="maroonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9B1C1C" />
+      <stop offset="50%" stop-color="#771313" />
+      <stop offset="100%" stop-color="#4C0505" />
+    </linearGradient>
+
+    <linearGradient id="diamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="35%" stop-color="#BAE6FD" />
+      <stop offset="70%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </linearGradient>
+
+    <linearGradient id="goldPill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#771313" />
+      <stop offset="50%" stop-color="#9B1C1C" />
+      <stop offset="100%" stop-color="#771313" />
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Left: Authentic University of Karachi Crest Shield -->
+  <g transform="translate(10, 6)" filter="url(#subtleShadow)">
+    <!-- Outer Decorative Medal Base -->
+    <circle cx="54" cy="54" r="52" fill="url(#maroonGrad)" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <circle cx="54" cy="54" r="47" fill="#FCFCFA" stroke="url(#goldGrad)" stroke-width="1.2" />
+
+    <!-- Authentic UoK Maroon Crescent -->
+    <path d="M 52 14 C 70 14 85 28 86 47 C 87 68 70 85 49 85 C 38 85 28 80 22 72 C 34 78 48 76 57 66 C 66 56 66 41 59 31 C 55 26 49 22 43 20 C 46 16 49 14 52 14 Z" fill="url(#maroonGrad)" />
+
+    <!-- UoK Star -->
+    <polygon points="34,16 36.5,23 44,23 38,27.5 40.5,34.5 34,30 27.5,34.5 30,27.5 24,23 31.5,23" fill="url(#maroonGrad)" />
+
+    <!-- Sailing Boat (Dhow) Body -->
+    <path d="M 33 60 C 42 66 62 66 73 59 C 75 58 72 63 67 65 C 57 69 41 68 31 62 Z" fill="url(#maroonGrad)" />
+    <!-- Boat waves/ripples -->
+    <path d="M 28 66 Q 34 64 40 66 T 52 66 T 64 66 T 76 65" stroke="url(#maroonGrad)" stroke-width="1.5" fill="none" stroke-linecap="round" />
+    <path d="M 31 70 Q 37 68 43 70 T 55 70 T 67 70 T 73 69" stroke="url(#maroonGrad)" stroke-width="1.2" fill="none" stroke-linecap="round" />
+    <path d="M 36 74 Q 42 72 48 74 T 60 74 T 68 73" stroke="url(#maroonGrad)" stroke-width="1" fill="none" stroke-linecap="round" />
+
+    <!-- Calligraphy Sail Shape ("Rabbi Zidni Ilma") -->
+    <path d="M 51 22 L 53 57 L 68 51 C 67 43 62 33 51 22 Z" fill="url(#maroonGrad)" opacity="0.9" />
+    <path d="M 51 26 L 43 54 L 51 55 Z" fill="url(#maroonGrad)" opacity="0.8" />
+    <!-- Calligraphy Lines Motif -->
+    <path d="M 54 32 Q 60 36 58 44 Q 63 42 65 47" stroke="#FFF" stroke-width="1.2" fill="none" stroke-linecap="round" />
+    <circle cx="57" cy="30" r="1" fill="#FFF" />
+    <circle cx="62" cy="38" r="0.9" fill="#FFF" />
+
+    <!-- Urdu Banner "کراچی یونیورسٹی" -->
+    <g transform="translate(18, 76)">
+      <!-- Ribbon shape -->
+      <path d="M 0 6 L 8 0 L 64 0 L 72 6 L 66 18 L 6 18 Z" fill="#FFF" stroke="url(#maroonGrad)" stroke-width="1.2" />
+      <path d="M 0 6 L 6 18 L -3 14 Z" fill="#E2E8F0" />
+      <path d="M 72 6 L 66 18 L 75 14 Z" fill="#E2E8F0" />
+      <!-- Stylized Urdu Typography -->
+      <text x="36" y="13" font-family="'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Arabic Typesetting', serif" font-size="10.5" font-weight="bold" fill="#771313" text-anchor="middle">کراچی یونیورسٹی</text>
+    </g>
+
+    <!-- Diamond Accent at top of crest -->
+    <polygon points="54,2 57,6 54,10 51,6" fill="url(#diamondGrad)" filter="url(#glow)" />
+  </g>
+
+  <!-- Center-Left: Big Diamond Jubilee 75 Badge -->
+  <g transform="translate(126, 8)">
+    <!-- 75 Number in Rich 3D Gold & Diamond Highlights -->
+    <text x="0" y="70" font-family="'Cinzel', 'Playfair Display', 'Trajan Pro', Georgia, serif" font-size="68" font-weight="900" fill="url(#goldGrad)" filter="url(#subtleShadow)" letter-spacing="-2">75</text>
+    
+    <!-- Faceted Sparkling Diamond Icon embedded beside 75 -->
+    <g transform="translate(86, 12)" filter="url(#glow)">
+      <!-- Diamond Gem Geometry -->
+      <polygon points="16,0 32,0 44,11 24,32 4,11" fill="url(#diamondGrad)" stroke="#FFFFFF" stroke-width="0.8" />
+      <polygon points="16,0 24,11 32,0" fill="#E0F2FE" opacity="0.9" />
+      <polygon points="4,11 24,11 16,0" fill="#BAE6FD" opacity="0.8" />
+      <polygon points="32,0 24,11 44,11" fill="#7DD3FC" opacity="0.8" />
+      <polygon points="4,11 24,32 24,11" fill="#0284C7" opacity="0.9" />
+      <polygon points="44,11 24,32 24,11" fill="#0369A1" opacity="0.95" />
+      <!-- Star Sparkle on diamond -->
+      <path d="M 12 4 L 14 0 L 16 4 L 20 6 L 16 8 L 14 12 L 12 8 L 8 6 Z" fill="#FFFFFF" opacity="0.95" />
+    </g>
+
+    <!-- Jubilee Subtext under 75 -->
+    <text x="4" y="86" font-family="'Cinzel', 'Montserrat', sans-serif" font-size="10" font-weight="800" fill="#9B1C1C" letter-spacing="3.5">YEARS</text>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="262" y1="18" x2="262" y2="102" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" />
+  <circle cx="262" cy="18" r="3" fill="url(#goldGrad)" />
+  <circle cx="262" cy="102" r="3" fill="url(#goldGrad)" />
+
+  <!-- Right: Official Typography -->
+  <g transform="translate(276, 12)">
+    <!-- Primary University Title -->
+    <text x="0" y="28" font-family="'Cinzel', 'Trajan Pro', 'Cinzel Decorative', Georgia, serif" font-size="22" font-weight="900" fill="#1E293B" letter-spacing="1.2">UNIVERSITY OF KARACHI</text>
+    
+    <!-- Diamond Jubilee Special Subtitle -->
+    <g transform="translate(0, 36)">
+      <!-- Diamond Sparkle Icon -->
+      <polygon points="6,0 12,5 6,10 0,5" fill="url(#diamondGrad)" />
+      <text x="18" y="9" font-family="'Montserrat', 'Cinzel', sans-serif" font-size="12" font-weight="800" fill="#9B1C1C" letter-spacing="2.8">DIAMOND JUBILEE</text>
+      <text x="178" y="9" font-family="'Montserrat', sans-serif" font-size="11.5" font-weight="600" fill="#64748B" letter-spacing="1.5">(1951 – 2026)</text>
+    </g>
+
+    <!-- Maroon & Gold Heritage Ribbon / Pill -->
+    <g transform="translate(0, 56)">
+      <rect x="0" y="0" width="248" height="24" rx="12" fill="url(#goldPill)" stroke="url(#goldGrad)" stroke-width="1.2" />
+      <text x="124" y="16" font-family="'Montserrat', sans-serif" font-size="9.5" font-weight="800" fill="#FFF2B2" letter-spacing="1.8" text-anchor="middle">★ 75 YEARS OF ACADEMIC LEADERSHIP ★</text>
+    </g>
+  </g>
+</svg>

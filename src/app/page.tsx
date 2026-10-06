@@ -321,10 +321,10 @@ export default async function Home() {
           <article className="hv2-vc">
             <div className="hv2-vc-photo">
               <span className="hv2-vc-block" aria-hidden="true" />
-              <img src="/assets/img/uok/vc-muhammad-tufail.jpg" alt="Prof. Dr. Muhammad Tufail, Vice Chancellor" />
+              <img src="/assets/img/uok/vc-waseem-qazi.jpg" alt="Prof. Dr. Waseem Qazi, Vice Chancellor" />
               <div className="hv2-vc-sign">
-                <span className="hv2-vc-signature" aria-hidden="true">Muhammad Tufail</span>
-                <strong>Prof. Dr. Muhammad Tufail</strong>
+                <span className="hv2-vc-signature" aria-hidden="true">Waseem Qazi</span>
+                <strong>Prof. Dr. Waseem Qazi</strong>
                 <span>Vice Chancellor</span>
               </div>
             </div>
@@ -332,7 +332,7 @@ export default async function Home() {
               <p className="hv2-kicker">Leadership</p>
               <h2>Message from the Vice Chancellor</h2>
               <p>
-                Prof. Dr. Muhammad Tufail serves as Vice Chancellor of the University of Karachi, guiding one of
+                Prof. Dr. Waseem Qazi serves as Vice Chancellor of the University of Karachi, guiding one of
                 Pakistan’s largest and most historic institutions of higher learning toward continued academic and
                 research excellence.
               </p>

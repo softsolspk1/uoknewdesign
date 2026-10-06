@@ -22,6 +22,7 @@
   --hv2-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   font-family: var(--hv2-sans);
   color: var(--hv2-ink);
+  font-size: 14px;
   letter-spacing: 0;
   line-height: 1.5;
 }
@@ -65,6 +66,12 @@
 .hv2 img {
   display: block;
   max-width: 100%;
+}
+
+/* custom.css pads <body> for the legacy fixed news ticker, which the
+   redesigned homepage header doesn't render. */
+body:has(.hv2-site-header) {
+  padding-top: 0 !important;
 }
 
 .hv2-wrap {
@@ -243,6 +250,7 @@
 }
 
 .hv2-mainbar-inner {
+  max-width: 1680px;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -254,7 +262,7 @@
   align-items: center;
   gap: 14px;
   flex: 0 0 auto;
-  margin-left: 4%;
+  margin-left: 3%;
 }
 
 .hv2-brand-crest {
@@ -277,10 +285,11 @@
 
 .hv2-brand-urdu {
   font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
-  font-size: 22px;
+  font-size: 15px;
   font-weight: 700;
+  line-height: 1.9;
   color: var(--hv2-navy);
-  margin: 2px 0 4px 32px;
+  margin: -2px 0 3px 34px;
 }
 
 .hv2-brand-motto {
@@ -314,6 +323,7 @@
   height: 92px;
   font-size: 14px;
   font-weight: 500;
+  white-space: nowrap;
   color: #2d3448;
   position: relative;
 }
@@ -481,7 +491,8 @@
   inset: 0;
   background:
     linear-gradient(90deg, rgba(12, 28, 66, 0.92) 0%, rgba(14, 32, 72, 0.82) 28%, rgba(16, 36, 80, 0.35) 48%, rgba(16, 36, 80, 0) 62%),
-    linear-gradient(0deg, rgba(8, 18, 40, 0.35) 0%, rgba(8, 18, 40, 0) 30%);
+    linear-gradient(0deg, rgba(8, 18, 40, 0.35) 0%, rgba(8, 18, 40, 0) 30%),
+    radial-gradient(ellipse 22% 32% at 92% 18%, rgba(8, 18, 40, 0.55) 0%, rgba(8, 18, 40, 0) 100%);
 }
 
 .hv2-hero-content {
@@ -553,8 +564,8 @@
   border-left: 2px solid var(--hv2-red);
   font-size: 12px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7), 0 0 12px rgba(0, 0, 0, 0.4);
 }
 
 .hv2-hero-dots {
@@ -866,6 +877,8 @@
 
 .hv2-vc-sign {
   position: relative;
+  width: max-content;
+  white-space: nowrap;
   margin: -26px 0 0 30px;
   padding: 4px 8px 6px;
   background: #fff;
@@ -879,8 +892,8 @@
 
 .hv2-vc-signature {
   font-family: 'Mrs Saint Delafield', 'Brush Script MT', cursive;
-  font-size: 20px;
-  line-height: 1;
+  font-size: 17px;
+  line-height: 1.1;
   color: #1f2a44;
 }
 
@@ -980,11 +993,11 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 58%;
+  width: 52%;
   background-size: cover;
   background-position: center;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.75) 35%, #000 60%);
-  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.75) 35%, #000 60%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.6) 30%, #000 55%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.6) 30%, #000 55%);
 }
 
 .hv2-quick-num {
@@ -1003,7 +1016,7 @@
   display: flex;
   flex-direction: column;
   padding: 18px 20px 16px 24px;
-  max-width: 80%;
+  max-width: 64%;
 }
 
 .hv2-quick-icon {
@@ -1118,7 +1131,7 @@
 .hv2-faculty-img {
   position: relative;
   margin: 8px 8px 0;
-  aspect-ratio: 3.1;
+  aspect-ratio: 2.5;
   overflow: hidden;
 }
 
@@ -1874,7 +1887,7 @@
   border-right: 1px solid rgba(255, 255, 255, 0.22);
 }
 
-.hv2 .hv2-footer h2 {
+.hv2.hv2-footer h2 {
   font-family: var(--hv2-sans);
   font-size: 11px;
   font-weight: 700;
@@ -2021,9 +2034,32 @@
 /* ==========================================================================
    Responsive
    ========================================================================== */
-@media (max-width: 1399px) {
+@media (max-width: 1699px) {
   .hv2-nav > ul {
-    gap: 22px;
+    gap: 16px;
+  }
+
+  .hv2 .hv2-nav > ul > li > a {
+    font-size: 13px;
+  }
+
+  .hv2-brand {
+    margin-left: 0.5%;
+  }
+
+  .hv2-search {
+    width: 150px;
+  }
+
+  .hv2-header-actions {
+    gap: 14px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1499px) {
+  .hv2-search {
+    display: none;
   }
 
   .hv2-brand {
@@ -2035,7 +2071,7 @@
   }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1365px) {
   .hv2 .hv2-burger {
     display: inline-flex;
     align-items: center;

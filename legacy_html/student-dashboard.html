@@ -1,0 +1,277 @@
+﻿<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Student Dashboard (Demo) — University of Karachi</title>
+<meta name="author" content="University of Karachi">
+<meta name="description" content="Demo student dashboard preview for the University of Karachi portal.">
+<meta name="robots" content="NOINDEX,FOLLOW">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+<link rel="manifest" href="assets/img/favicons/manifest.json">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/fontawesome.min.css">
+<link rel="stylesheet" href="assets/css/magnific-popup.min.css">
+<link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/custom.css">
+<style>
+.dash-wrap{background:var(--smoke-color2)}
+.dash-banner{background:linear-gradient(135deg,var(--title-color),#132a4d);border-radius:16px;padding:36px 40px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.dash-banner h2{color:#fff;margin-bottom:6px}
+.dash-role-badge{display:inline-block;background:var(--theme-color);color:#fff;font-size:12px;font-weight:700;letter-spacing:.5px;padding:5px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:10px}
+.dash-stat{background:#fff;border-radius:14px;padding:26px 24px;box-shadow:0 10px 30px rgba(8,25,51,0.06);height:100%}
+.dash-stat .num{font-size:32px;font-weight:700;color:var(--title-color);line-height:1}
+.dash-stat .lbl{color:var(--body-color);font-size:14px;margin-top:8px}
+.dash-stat .ic{width:46px;height:46px;border-radius:12px;background:var(--smoke-color);color:var(--theme-color);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.dash-card{background:#fff;border-radius:14px;padding:30px;box-shadow:0 10px 30px rgba(8,25,51,0.06)}
+.dash-card h3{font-size:20px;margin-bottom:20px}
+.dash-table th{color:var(--body-color);font-size:13px;text-transform:uppercase;letter-spacing:.4px;border-bottom:2px solid var(--th-border-color2)}
+.dash-table td{vertical-align:middle;border-bottom:1px solid var(--th-border-color2);font-size:15px}
+.badge-status{padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600}
+.badge-ok{background:#e7f6ec;color:#1a8a3e}
+.badge-warn{background:#fff4e0;color:#b26a00}
+.announce-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--th-border-color2)}
+.announce-item:last-child{border-bottom:none}
+.announce-dot{width:8px;height:8px;border-radius:50%;background:var(--theme-color);margin-top:8px;flex-shrink:0}
+.logout-btn{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:10px 20px;border-radius:8px;font-size:14px;white-space:nowrap}
+.logout-btn:hover{background:#fff;color:var(--title-color)}
+</style>
+</head>
+<body>
+
+<div class="preloader">
+  <div class="preloader-inner">
+    <img src="/uok101.jpg" alt="University of Karachi — 75 Years of Academic Leadership" loading="lazy" decoding="async">
+    <span class="loader">University of Karachi <span class="loading-text">75 Years of Academic Leadership (1951–2026)</span></span>
+  </div>
+</div>
+
+<div class="popup-search-box">
+  <button class="searchClose"><i class="far fa-times"></i></button>
+  <form action="#"><input type="text" placeholder="What are you looking for?"><button type="submit"><i class="fal fa-search"></i></button></form>
+</div>
+
+<div class="th-menu-wrapper">
+  <div class="th-menu-area text-center">
+    <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
+    <div class="mobile-logo">
+      <a href="/" class="uok-brand-lockup" style="justify-content:center;gap:12px;">
+        <img class="uok-crest-img" src="assets/img/logo-icon.png" alt="University of Karachi" loading="lazy" decoding="async">
+        <div class="uok-brand-text">
+          <span class="uok-brand-title" style="font-size:16px;">UNIVERSITY OF KARACHI</span>
+          <div class="uok-brand-subtitle">
+            <span class="uok-brand-urdu" style="font-size:13px;">جامعہ کراچی</span>
+            <span class="uok-brand-sep">•</span>
+            <span class="uok-brand-tag" style="font-size:10px;">ESTD. 1951</span>
+          </div>
+        </div>
+        <img class="uok-jubilee-img" src="/uok101.jpg" alt="Diamond Jubilee" loading="lazy" decoding="async">
+      </a>
+    </div>
+    <div class="th-mobile-menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="academics">Academics</a></li>
+        <li><a href="https://uokadmission.edu.pk/login" target="_blank" rel="noopener noreferrer">Admissions</a></li>
+        <li><a href="student-life">Student Life</a></li>
+        <li><a href="login">Portal Login</a></li>
+        <li><a href="contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<header class="th-header header-layout1">
+  <div class="header-info d-block">
+    <div class="container th-container2">
+      <div class="row justify-content-between align-items-center">
+        <div class="col-auto">
+          <div class="header-logo">
+            <a href="/" class="uok-brand-lockup">
+              <div class="uok-crest-wrap">
+                <img class="uok-crest-img" src="assets/img/logo-icon.png" alt="University of Karachi Logo" loading="lazy" decoding="async">
+              </div>
+              <div class="uok-brand-text">
+                <span class="uok-brand-title">UNIVERSITY OF KARACHI</span>
+                <div class="uok-brand-subtitle">
+                  <span class="uok-brand-urdu">جامعہ کراچی</span>
+                  <span class="uok-brand-sep">•</span>
+                  <span class="uok-brand-tag">ESTD. 1951</span>
+                </div>
+              </div>
+              <div class="uok-brand-divider" aria-hidden="true"></div>
+              <div class="uok-jubilee-wrap">
+                <img class="uok-jubilee-img" src="/uok101.jpg" alt="University of Karachi 75 Years Diamond Jubilee" loading="lazy" decoding="async">
+                <div class="uok-jubilee-text d-none d-xxl-flex">
+                  <span class="uok-jubilee-title">DIAMOND JUBILEE</span>
+                  <span class="uok-jubilee-years">75 YEARS (1951–2026)</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="header-button">
+            <a href="/" class="th-btn" style="background:transparent;border:1px solid var(--th-border-color);color:var(--title-color)"><i class="fa-solid fa-house"></i> Main Site</a>
+            <a href="login" class="th-btn"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+            <button type="button" class="th-menu-toggle d-inline-block d-xl-none"><i class="far fa-bars"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="breadcumb-wrapper position-relative" data-bg-src="assets/img/shape/breadcrumb-shep.png">
+  <div class="breadcumb-banner"><img src="assets/img/breadcrumb/breadcumb-banner.png" alt="University of Karachi main entrance gate" loading="eager" fetchpriority="high" decoding="async"></div>
+  <div class="container th-container4">
+    <div class="row">
+      <div class="col-xxl-8">
+        <div class="breadcumb-content">
+          <h1 class="breadcumb-title">Student Dashboard</h1>
+          <ul class="breadcumb-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="login">Portal</a></li>
+            <li>Student Dashboard</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dash-wrap space">
+  <div class="container th-container4">
+
+    <div class="dash-banner mb-40">
+      <div>
+        <span class="dash-role-badge">Demo Preview</span>
+        <h2>Welcome back, Ayesha Siddiqui</h2>
+        <p class="mb-0" style="color:#c8d2e0">BS Computer Science · 6th Semester · Roll No. 2023-CS-045 · Dept. of Computer Science (UBIT)</p>
+      </div>
+      <a href="login" class="logout-btn th-btn"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+    </div>
+
+    <div class="row gy-4 mb-10">
+      <div class="col-lg-3 col-sm-6">
+        <div class="dash-stat"><div class="ic"><i class="fa-solid fa-book"></i></div><div class="num">6</div><div class="lbl">Enrolled Courses</div></div>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <div class="dash-stat"><div class="ic"><i class="fa-solid fa-chart-line"></i></div><div class="num">3.42</div><div class="lbl">Current CGPA</div></div>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <div class="dash-stat"><div class="ic"><i class="fa-solid fa-calendar-check"></i></div><div class="num">91%</div><div class="lbl">Attendance</div></div>
+      </div>
+      <div class="col-lg-3 col-sm-6">
+        <div class="dash-stat"><div class="ic"><i class="fa-solid fa-file-invoice-dollar"></i></div><div class="num text-success">Paid</div><div class="lbl">Semester Fee Status</div></div>
+      </div>
+    </div>
+
+    <div class="row gy-4 mt-10">
+      <div class="col-lg-8">
+        <div class="dash-card mb-4">
+          <h3>Current Semester Courses</h3>
+          <div class="table-responsive">
+            <table class="table dash-table mb-0">
+              <thead><tr><th>Course</th><th>Instructor</th><th>Schedule</th><th>Attendance</th></tr></thead>
+              <tbody>
+                <tr><td>Database Systems</td><td>Dr. M. Sadiq Ali Khan</td><td>Mon &amp; Wed, 9:00–10:30am</td><td><span class="badge-status badge-ok">94%</span></td></tr>
+                <tr><td>Operating Systems</td><td>Dr. Saba Bashir</td><td>Tue &amp; Thu, 11:00–12:30pm</td><td><span class="badge-status badge-ok">90%</span></td></tr>
+                <tr><td>Computer Networks</td><td>Dr. Kamran Ahsan</td><td>Mon &amp; Wed, 1:00–2:30pm</td><td><span class="badge-status badge-warn">78%</span></td></tr>
+                <tr><td>Software Engineering</td><td>Dr. Sana Saeed</td><td>Tue &amp; Thu, 9:00–10:30am</td><td><span class="badge-status badge-ok">96%</span></td></tr>
+                <tr><td>Probability &amp; Statistics</td><td>Dept. of Mathematics</td><td>Fri, 9:00–12:00pm</td><td><span class="badge-status badge-ok">88%</span></td></tr>
+                <tr><td>Technical &amp; Business Writing</td><td>Dept. of English</td><td>Wed, 2:00–4:00pm</td><td><span class="badge-status badge-ok">92%</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <h3>Recent Results</h3>
+          <div class="table-responsive">
+            <table class="table dash-table mb-0">
+              <thead><tr><th>Course</th><th>Assessment</th><th>Grade</th></tr></thead>
+              <tbody>
+                <tr><td>Database Systems</td><td>Mid-Term Exam</td><td><span class="badge-status badge-ok">A-</span></td></tr>
+                <tr><td>Operating Systems</td><td>Assignment 3</td><td><span class="badge-status badge-ok">A</span></td></tr>
+                <tr><td>Computer Networks</td><td>Quiz 2</td><td><span class="badge-status badge-warn">B-</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="dash-card mb-4">
+          <h3>Announcements</h3>
+          <div class="announce-item"><span class="announce-dot"></span><div><strong>Semester Fee Voucher issued</strong><p class="box-text mb-0">Due by the 15th — pay via the Semester Cell.</p></div></div>
+          <div class="announce-item"><span class="announce-dot"></span><div><strong>Mid-term results posted</strong><p class="box-text mb-0">Available for Database Systems and Operating Systems.</p></div></div>
+          <div class="announce-item"><span class="announce-dot"></span><div><strong>UBIT Seminar — AI in Industry</strong><p class="box-text mb-0">Friday, Computer Science Auditorium.</p></div></div>
+          <div class="announce-item"><span class="announce-dot"></span><div><strong>Library hours extended</strong><p class="box-text mb-0">Dr. Mahmud Husain Library open till 8pm during exams.</p></div></div>
+        </div>
+        <div class="dash-card">
+          <h3>Quick Links</h3>
+          <div class="d-flex flex-column" style="gap:10px">
+            <a href="https://uokadmission.edu.pk/login" target="_blank" rel="noopener noreferrer" class="th-btn style-border1 th-icon">Semester Fee Info</a>
+            <a href="library" class="th-btn style-border1 th-icon">Library &amp; Digital Resources</a>
+            <a href="department-computerscience" class="th-btn style-border1 th-icon">My Department (UBIT)</a>
+            <a href="student-life" class="th-btn style-border1 th-icon">Student Life &amp; Hostels</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer-wrapper footer-default footer-overlay">
+  <div class="copyright-wrap z-index-common">
+    <div class="container">
+      <div class="row justify-content-center gy-3 align-items-center">
+        <div class="col-12 text-center">
+          <p class="copyright-text" style="white-space:nowrap;display:inline-block;max-width:100%;overflow-x:auto"><i class="fal fa-copyright"></i> Copyright 2026 <a href="/">University of Karachi</a>. All Rights Reserved. <span style="opacity:.7">— Developed by Softsols Pakistan</span></p>
+        </div>
+        <div class="col-12 text-center">
+          <div class="footer-links" style="justify-content:center">
+            <ul>
+              <li><a href="/">Main Site</a></li>
+              <li><a href="login">Portal Login</a></li>
+              <li><a href="contact">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="scroll-top">
+  <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102"><path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path></svg>
+</div>
+
+<script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/jquery.counterup.min.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
+<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/SplitText.min.js"></script>
+<script src="assets/js/lenis.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/uok-fixes.js"></script>
+</body>
+</html>

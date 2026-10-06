@@ -1,0 +1,889 @@
+/* ==========================================================================
+   Inner pages, redesigned to match the 2026 homepage (home-v2.css).
+   Page bodies are legacy theme HTML from the CMS, so instead of rewriting
+   ~100 pages this re-skins the theme's components under .hv2-inner with the
+   homepage's tokens: navy/red palette, Urbanist + Plus Jakarta Sans +
+   Playfair type, flat 3px-radius cards with hairline borders.
+   Selectors use .hv2-inner.uok-dynamic-page (two classes) because the
+   theme's style.css loads after this file and would otherwise win ties.
+   ========================================================================== */
+
+.hv2-page-hero,
+.hv2-inner.uok-dynamic-page {
+  --hv2-navy: #1b2a63;
+  --hv2-ink: #1f2a44;
+  --hv2-text: #5b6472;
+  --hv2-red: #c8102e;
+  --hv2-maroon: #8e1b3a;
+  --hv2-line: #e6e9ef;
+  --hv2-soft: #f4f6fa;
+  --hv2-sans: 'Plus Jakarta Sans', 'Urbanist', system-ui, sans-serif;
+  --hv2-display: 'Urbanist', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --hv2-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+/* ---------- page hero ---------- */
+.hv2-page-hero {
+  position: relative;
+  overflow: hidden;
+  background: #0d1f45;
+  color: #fff;
+}
+
+.hv2-page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(12, 28, 66, 0.94) 0%, rgba(14, 32, 72, 0.86) 38%, rgba(16, 36, 80, 0.45) 70%, rgba(16, 36, 80, 0.2) 100%),
+    url('/photos/Admin Block.jpg') center 42% / cover no-repeat;
+}
+
+.hv2-page-hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--hv2-red) 0 22%, var(--hv2-navy) 22% 100%);
+}
+
+.hv2-page-hero-inner {
+  position: relative;
+  padding-top: 54px;
+  padding-bottom: 58px;
+}
+
+.hv2 .hv2-crumbs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hv2 .hv2-crumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hv2 .hv2-crumbs li + li::before {
+  content: '/';
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hv2 .hv2-crumbs a:hover {
+  color: #fff;
+}
+
+.hv2 .hv2-crumbs [aria-current] {
+  color: #fff;
+}
+
+.hv2 .hv2-page-title {
+  max-width: 820px;
+  margin-top: 14px;
+  font-family: var(--hv2-display);
+  font-weight: 800;
+  font-size: clamp(30px, 3.4vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.hv2 .hv2-page-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.hv2 .hv2-page-tag::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  background: var(--hv2-red);
+}
+
+/* ---------- base typography ---------- */
+.hv2-inner.uok-dynamic-page {
+  font-family: var(--hv2-sans);
+  color: var(--hv2-text);
+  font-size: 15px;
+  line-height: 1.7;
+  background: #fff;
+  overflow-x: clip;
+}
+
+.hv2-inner.uok-dynamic-page h1,
+.hv2-inner.uok-dynamic-page h2,
+.hv2-inner.uok-dynamic-page h3,
+.hv2-inner.uok-dynamic-page h4,
+.hv2-inner.uok-dynamic-page h5,
+.hv2-inner.uok-dynamic-page h6 {
+  font-family: var(--hv2-display);
+  color: var(--hv2-ink);
+  letter-spacing: -0.005em;
+}
+
+.hv2-inner.uok-dynamic-page p,
+.hv2-inner.uok-dynamic-page li,
+.hv2-inner.uok-dynamic-page td {
+  font-family: var(--hv2-sans);
+}
+
+.hv2-inner.uok-dynamic-page a {
+  color: var(--hv2-navy);
+}
+
+.hv2-inner.uok-dynamic-page a:hover {
+  color: var(--hv2-red);
+}
+
+.hv2-inner.uok-dynamic-page .th-container4,
+.hv2-inner.uok-dynamic-page .th-container2,
+.hv2-inner.uok-dynamic-page > .container,
+.hv2-inner.uok-dynamic-page section > .container,
+.hv2-inner.uok-dynamic-page div > .container {
+  max-width: 1392px;
+}
+
+/* Theme decoration (floating shapes, triangles, masks) has no place in the
+   flatter redesign. */
+.hv2-inner.uok-dynamic-page .shape-mockup,
+.hv2-inner.uok-dynamic-page .apply-stadum-shape,
+.hv2-inner.uok-dynamic-page .about-shep-2,
+.hv2-inner.uok-dynamic-page .about-shape-right,
+.hv2-inner.uok-dynamic-page .breadcumb-wrapper {
+  display: none !important;
+}
+
+/* The theme spaces sections 120px+ apart; tighten to the homepage rhythm. */
+.hv2-inner.uok-dynamic-page .space {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.hv2-inner.uok-dynamic-page .space-top {
+  padding-top: 72px;
+}
+
+.hv2-inner.uok-dynamic-page .space-bottom,
+.hv2-inner.uok-dynamic-page .space-extra-bottom,
+.hv2-inner.uok-dynamic-page .space-extra2-bottom {
+  padding-bottom: 72px;
+}
+
+.hv2-inner.uok-dynamic-page .program-details + .th-program-wrapper {
+  padding-top: 0;
+}
+
+/* ---------- section headings ---------- */
+.hv2-inner.uok-dynamic-page .title-area {
+  margin-bottom: 28px;
+}
+
+.hv2-inner.uok-dynamic-page .sub-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+  font-family: var(--hv2-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hv2-red);
+  background: none;
+  border: 0;
+}
+
+.hv2-inner.uok-dynamic-page .sub-title::before,
+.hv2-inner.uok-dynamic-page .sub-title::after {
+  display: none;
+}
+
+.hv2-inner.uok-dynamic-page .sub-title::before {
+  content: '';
+  display: block;
+  position: static;
+  width: 22px;
+  height: 2px;
+  background: var(--hv2-red);
+  transform: none;
+}
+
+.hv2-inner.uok-dynamic-page .sec-title {
+  font-family: var(--hv2-serif);
+  font-weight: 700;
+  font-size: clamp(26px, 2.4vw, 36px);
+  line-height: 1.18;
+  color: var(--hv2-ink);
+  margin-bottom: 0;
+}
+
+.hv2-inner.uok-dynamic-page .sec-title span {
+  color: var(--hv2-navy);
+}
+
+.hv2-inner.uok-dynamic-page .sec-text,
+.hv2-inner.uok-dynamic-page .sec-text2,
+.hv2-inner.uok-dynamic-page .sec-text4 {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--hv2-text);
+}
+
+.hv2-inner.uok-dynamic-page .sec-text2 {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hv2-navy);
+}
+
+.hv2-inner.uok-dynamic-page .box-title {
+  font-family: var(--hv2-display);
+  font-weight: 700;
+  color: var(--hv2-ink);
+}
+
+.hv2-inner.uok-dynamic-page .box-title a {
+  color: inherit;
+}
+
+.hv2-inner.uok-dynamic-page .box-text {
+  color: var(--hv2-text);
+}
+
+.hv2-inner.uok-dynamic-page .dept-subheading {
+  position: relative;
+  margin-top: 28px !important;
+  padding-left: 14px;
+  font-family: var(--hv2-display);
+  font-weight: 700 !important;
+  color: var(--hv2-navy) !important;
+}
+
+.hv2-inner.uok-dynamic-page .dept-subheading::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  bottom: 0.2em;
+  width: 3px;
+  background: var(--hv2-red);
+}
+
+.hv2-inner.uok-dynamic-page .dept-subheading:empty,
+.hv2-inner.uok-dynamic-page .dept-subheading:has(> br:only-child) {
+  display: none;
+}
+
+/* ---------- buttons ---------- */
+.hv2-inner.uok-dynamic-page .th-btn,
+.hv2-inner.uok-dynamic-page .btn-success,
+.hv2-inner.uok-dynamic-page .btn-outline-success {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 22px;
+  border-radius: 3px;
+  border: 1px solid var(--hv2-red);
+  background: var(--hv2-red);
+  color: #fff;
+  font-family: var(--hv2-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: 0;
+  box-shadow: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.hv2-inner.uok-dynamic-page .th-btn::before,
+.hv2-inner.uok-dynamic-page .th-btn::after {
+  display: none;
+}
+
+.hv2-inner.uok-dynamic-page .th-btn.th-icon::after {
+  content: '\f061';
+  display: inline-block;
+  position: static;
+  width: auto;
+  height: auto;
+  font-family: 'Font Awesome 6 Pro';
+  font-weight: 900;
+  font-size: 12px;
+  background: none;
+  transform: none;
+}
+
+.hv2-inner.uok-dynamic-page .th-btn:hover,
+.hv2-inner.uok-dynamic-page .btn-success:hover {
+  background: #a40d26;
+  border-color: #a40d26;
+  color: #fff;
+}
+
+.hv2-inner.uok-dynamic-page .btn-sm {
+  min-height: 36px;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+.hv2-inner.uok-dynamic-page .btn-outline-success {
+  background: transparent;
+  border-color: var(--hv2-line);
+  color: var(--hv2-navy);
+}
+
+.hv2-inner.uok-dynamic-page .btn-outline-success:hover {
+  background: var(--hv2-navy);
+  border-color: var(--hv2-navy);
+  color: #fff;
+}
+
+/* ---------- media ---------- */
+.hv2-inner.uok-dynamic-page .global-img,
+.hv2-inner.uok-dynamic-page .img-box4 > div {
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.hv2-inner.uok-dynamic-page .global-img img {
+  border-radius: 3px;
+}
+
+.hv2-inner.uok-dynamic-page .photo-placeholder-box {
+  background: var(--hv2-soft) !important;
+  border: 1px dashed #cfd5e1 !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+}
+
+.hv2-inner.uok-dynamic-page .photo-placeholder-box i {
+  color: var(--hv2-navy) !important;
+}
+
+/* ---------- department template ---------- */
+.hv2-inner.uok-dynamic-page .program-details {
+  padding-top: 64px;
+  padding-bottom: 72px;
+}
+
+.hv2-inner.uok-dynamic-page .discount-wrapp {
+  display: none;
+}
+
+.hv2-inner.uok-dynamic-page .dept-nav-card,
+.hv2-inner.uok-dynamic-page .dept-contact-quick-card,
+.hv2-inner.uok-dynamic-page .widget:not(.contact_info) {
+  background: #fff;
+  border: 1px solid var(--hv2-line) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 4px 16px rgba(16, 30, 64, 0.07) !important;
+}
+
+.hv2-inner.uok-dynamic-page .dept-sidebar.sticky-top {
+  top: 24px;
+}
+
+.hv2-inner.uok-dynamic-page .dept-nav-header {
+  background: var(--hv2-navy) !important;
+  color: #fff !important;
+  border-radius: 3px 3px 0 0 !important;
+  font-family: var(--hv2-display);
+}
+
+.hv2-inner.uok-dynamic-page .dept-nav-header h4,
+.hv2-inner.uok-dynamic-page .dept-nav-header p,
+.hv2-inner.uok-dynamic-page .dept-nav-header i {
+  color: #fff !important;
+}
+
+.hv2-inner.uok-dynamic-page .dept-nav-header .badge {
+  background: var(--hv2-red) !important;
+  color: #fff !important;
+  font-size: 10px !important;
+  letter-spacing: 0.12em !important;
+}
+
+/* Contact widget: navy panel with hairline-separated rows. */
+.hv2-inner.uok-dynamic-page .widget.contact_info {
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+
+.hv2-inner.uok-dynamic-page .th-widget-contact {
+  padding: 26px 24px;
+  border-radius: 3px;
+  background: var(--hv2-navy) !important;
+  box-shadow: 0 4px 16px rgba(16, 30, 64, 0.1);
+}
+
+.hv2-inner.uok-dynamic-page .th-widget-contact .widget_title {
+  font-family: var(--hv2-display);
+  font-size: 18px;
+  color: #fff;
+}
+
+.hv2-inner.uok-dynamic-page .th-widget-contact .info-card {
+  margin: 0;
+  padding: 14px 0;
+  background: none !important;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.hv2-inner.uok-dynamic-page .th-widget-contact .box-text {
+  margin: 0 0 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hv2-inner.uok-dynamic-page .th-widget-contact .box-title,
+.hv2-inner.uok-dynamic-page .th-widget-contact .box-title a {
+  margin: 0;
+  font-family: var(--hv2-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  word-break: break-word;
+}
+
+.hv2-inner.uok-dynamic-page .dept-nav-pills .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  padding: 10px 14px;
+  border-radius: 3px;
+  border-left: 3px solid transparent;
+  background: transparent;
+  color: var(--hv2-ink) !important;
+  font-family: var(--hv2-sans);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.hv2-inner.uok-dynamic-page .dept-nav-pills .nav-link i {
+  color: var(--hv2-navy);
+}
+
+.hv2-inner.uok-dynamic-page .dept-nav-pills .nav-link:hover {
+  background: var(--hv2-soft);
+}
+
+.hv2-inner.uok-dynamic-page .dept-nav-pills .nav-link.active {
+  background: var(--hv2-soft) !important;
+  border-left-color: var(--hv2-red);
+  color: var(--hv2-navy) !important;
+}
+
+.hv2-inner.uok-dynamic-page .dept-nav-pills .nav-link.active i {
+  color: var(--hv2-red);
+}
+
+.hv2-inner.uok-dynamic-page .dept-pane-header {
+  background: none !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--hv2-line) !important;
+  padding: 0 0 14px !important;
+  margin-bottom: 18px;
+}
+
+.hv2-inner.uok-dynamic-page .dept-pane-header h1,
+.hv2-inner.uok-dynamic-page .dept-pane-header h2,
+.hv2-inner.uok-dynamic-page .dept-pane-header h3,
+.hv2-inner.uok-dynamic-page .dept-pane-header h4 {
+  font-family: var(--hv2-serif);
+  font-weight: 700;
+  color: var(--hv2-ink) !important;
+}
+
+.hv2-inner.uok-dynamic-page .dept-pane-header i {
+  color: var(--hv2-red) !important;
+}
+
+.hv2-inner.uok-dynamic-page .dept-tab-content,
+.hv2-inner.uok-dynamic-page .dept-pane-body {
+  background: #fff;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.hv2-inner.uok-dynamic-page .badge {
+  border-radius: 2px;
+  font-family: var(--hv2-sans);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.hv2-inner.uok-dynamic-page .badge.bg-success,
+.hv2-inner.uok-dynamic-page .badge.text-bg-success {
+  background: var(--hv2-navy) !important;
+}
+
+/* ---------- lists ---------- */
+.hv2-inner.uok-dynamic-page .checklist ul,
+.hv2-inner.uok-dynamic-page .content-typography ul {
+  padding-left: 0;
+}
+
+.hv2-inner.uok-dynamic-page .checklist li,
+.hv2-inner.uok-dynamic-page .content-typography ul > li {
+  position: relative;
+  padding-left: 22px;
+  list-style: none;
+  color: var(--hv2-text);
+}
+
+.hv2-inner.uok-dynamic-page .checklist li::before,
+.hv2-inner.uok-dynamic-page .content-typography ul > li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.72em;
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  background: var(--hv2-red);
+  transform: rotate(45deg);
+}
+
+.hv2-inner.uok-dynamic-page .checklist li i,
+.hv2-inner.uok-dynamic-page .checklist li::after {
+  display: none;
+}
+
+/* ---------- tables ---------- */
+.hv2-inner.uok-dynamic-page .table-responsive {
+  border: 1px solid var(--hv2-line);
+  border-radius: 3px;
+}
+
+.hv2-inner.uok-dynamic-page table.table {
+  margin-bottom: 0;
+  font-size: 14px;
+  --bs-table-striped-bg: var(--hv2-soft);
+  --bs-table-hover-bg: #eef1f7;
+}
+
+.hv2-inner.uok-dynamic-page table.table > :not(caption) > * > * {
+  padding: 12px 14px;
+  border-color: var(--hv2-line);
+  color: var(--hv2-ink);
+  vertical-align: middle;
+}
+
+.hv2-inner.uok-dynamic-page table.table thead th,
+.hv2-inner.uok-dynamic-page table.table > tbody > tr:first-child > th {
+  background: var(--hv2-navy);
+  color: #fff;
+  font-family: var(--hv2-display);
+  font-weight: 700;
+  border-color: var(--hv2-navy);
+}
+
+.hv2-inner.uok-dynamic-page table img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- cards used across hub pages ---------- */
+.hv2-inner.uok-dynamic-page .service-card,
+.hv2-inner.uok-dynamic-page .professor-card,
+.hv2-inner.uok-dynamic-page .instr-card,
+.hv2-inner.uok-dynamic-page .dash-card,
+.hv2-inner.uok-dynamic-page .program-card,
+.hv2-inner.uok-dynamic-page .about-feature,
+.hv2-inner.uok-dynamic-page .about-feature-box,
+.hv2-inner.uok-dynamic-page .announce-item,
+.hv2-inner.uok-dynamic-page .testi-card,
+.hv2-inner.uok-dynamic-page .blog-card,
+.hv2-inner.uok-dynamic-page .course-card,
+.hv2-inner.uok-dynamic-page .team-card {
+  background: #fff;
+  border: 1px solid #eceff4;
+  border-radius: 3px;
+  box-shadow: 0 4px 16px rgba(16, 30, 64, 0.07);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.hv2-inner.uok-dynamic-page .service-card:hover,
+.hv2-inner.uok-dynamic-page .professor-card:hover,
+.hv2-inner.uok-dynamic-page .instr-card:hover,
+.hv2-inner.uok-dynamic-page .program-card:hover,
+.hv2-inner.uok-dynamic-page .blog-card:hover {
+  box-shadow: 0 10px 28px rgba(16, 30, 64, 0.12);
+  transform: translateY(-2px);
+}
+
+.hv2-inner.uok-dynamic-page .service-card::before,
+.hv2-inner.uok-dynamic-page .service-card::after,
+.hv2-inner.uok-dynamic-page .program-card::before,
+.hv2-inner.uok-dynamic-page .program-card::after {
+  display: none;
+}
+
+/* Icon tiles inside light cards only; dark bands keep the theme's own. */
+.hv2-inner.uok-dynamic-page .about-feature .box-icon,
+.hv2-inner.uok-dynamic-page .service-card .box-icon {
+  background: var(--hv2-soft);
+  border-radius: 3px;
+}
+
+.hv2-inner.uok-dynamic-page .icon-btn {
+  border-radius: 50%;
+  background: var(--hv2-navy);
+  color: #fff;
+  border: 0;
+}
+
+.hv2-inner.uok-dynamic-page .icon-btn:hover {
+  background: var(--hv2-red);
+  color: #fff;
+}
+
+.hv2-inner.uok-dynamic-page .box-number,
+.hv2-inner.uok-dynamic-page .counter-number {
+  font-family: var(--hv2-display);
+  font-weight: 800;
+}
+
+.hv2-inner.uok-dynamic-page .counter-card3 {
+  background: var(--hv2-navy);
+  border-radius: 3px;
+}
+
+.hv2-inner.uok-dynamic-page .program-blockquote,
+.hv2-inner.uok-dynamic-page blockquote {
+  background: var(--hv2-soft);
+  border: 0;
+  border-left: 4px solid var(--hv2-red);
+  border-radius: 0 3px 3px 0;
+  font-family: var(--hv2-serif);
+  font-style: italic;
+  color: var(--hv2-ink);
+}
+
+/* ---------- forms ---------- */
+.hv2-inner.uok-dynamic-page .form-control,
+.hv2-inner.uok-dynamic-page .form-select,
+.hv2-inner.uok-dynamic-page input[type='text'],
+.hv2-inner.uok-dynamic-page input[type='email'],
+.hv2-inner.uok-dynamic-page input[type='tel'],
+.hv2-inner.uok-dynamic-page textarea,
+.hv2-inner.uok-dynamic-page select {
+  border: 1px solid #dfe3ea;
+  border-radius: 3px;
+  background: #fff;
+  font-family: var(--hv2-sans);
+  color: var(--hv2-ink);
+  box-shadow: none;
+}
+
+.hv2-inner.uok-dynamic-page .form-control:focus,
+.hv2-inner.uok-dynamic-page textarea:focus,
+.hv2-inner.uok-dynamic-page select:focus,
+.hv2-inner.uok-dynamic-page input:focus {
+  border-color: var(--hv2-navy);
+  outline: 2px solid rgba(27, 42, 99, 0.15);
+  outline-offset: 0;
+}
+
+/* ---------- accordions (FAQ) ---------- */
+.hv2-inner.uok-dynamic-page .accordion-card,
+.hv2-inner.uok-dynamic-page .accordion-item {
+  border: 1px solid var(--hv2-line);
+  border-radius: 3px !important;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.hv2-inner.uok-dynamic-page .accordion-button {
+  font-family: var(--hv2-display);
+  font-weight: 700;
+  color: var(--hv2-ink);
+  background: #fff;
+  box-shadow: none;
+}
+
+.hv2-inner.uok-dynamic-page .accordion-button:not(.collapsed) {
+  color: var(--hv2-navy);
+  background: var(--hv2-soft);
+}
+
+/* ---------- apply band (department pages) ---------- */
+.hv2-inner.uok-dynamic-page .apply-stadum-area {
+  position: relative;
+  margin: 0;
+  padding: 48px 0;
+  background: linear-gradient(90deg, #12245a 0%, var(--hv2-navy) 60%, #23347a 100%) !important;
+  overflow: hidden;
+}
+
+.hv2-inner.uok-dynamic-page .apply-stadum-area::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--hv2-red);
+}
+
+.hv2-inner.uok-dynamic-page .apply-stadum-area .box-title,
+.hv2-inner.uok-dynamic-page .apply-stadum-area h2,
+.hv2-inner.uok-dynamic-page .apply-stadum-area h3 {
+  font-family: var(--hv2-serif);
+  color: #fff !important;
+}
+
+.hv2-inner.uok-dynamic-page .apply-stadum-area .box-text,
+.hv2-inner.uok-dynamic-page .apply-stadum-area p {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.hv2-inner.uok-dynamic-page .apply-stadum-area .th-btn.white-hover:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--hv2-navy);
+}
+
+/* ---------- marquee strip (department pages) ---------- */
+.hv2-inner.uok-dynamic-page .marquee-area {
+  background: var(--hv2-soft) !important;
+  border-top: 1px solid var(--hv2-line);
+  border-bottom: 1px solid var(--hv2-line);
+}
+
+.hv2-inner.uok-dynamic-page .marquee-area.space {
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+
+.hv2-inner.uok-dynamic-page .marquee-card a {
+  font-size: clamp(22px, 2.2vw, 32px) !important;
+}
+
+.hv2-inner.uok-dynamic-page .marquee-card .color-masking img {
+  max-height: 30px;
+}
+
+.hv2-inner.uok-dynamic-page .marquee-card,
+.hv2-inner.uok-dynamic-page .marquee-card a {
+  font-family: var(--hv2-display);
+  color: var(--hv2-navy) !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.hv2-inner.uok-dynamic-page .color-masking {
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 767px) {
+  .hv2-page-hero-inner {
+    padding-top: 36px;
+    padding-bottom: 40px;
+  }
+
+  .hv2 .hv2-page-tag {
+    letter-spacing: 0.2em;
+  }
+
+  .hv2-inner.uok-dynamic-page .program-details {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+}
+
+/* ---------- small CMS leftovers ---------- */
+/* Institute initials badges were inline-styled in the old green palette. */
+.hv2-inner.uok-dynamic-page .name-card-badge {
+  border-radius: 3px !important;
+  background: var(--hv2-navy) !important;
+  box-shadow: inset 0 -3px 0 var(--hv2-red) !important;
+  font-family: var(--hv2-display);
+}
+
+/* An emptied notice box left in the Admissions page content. */
+.hv2-inner.uok-dynamic-page .apply-stadum-box:not(:has(*)) {
+  display: none;
+}
+
+/* ---------- news / blog cards ---------- */
+.hv2-inner.uok-dynamic-page .th-blog {
+  height: 100%;
+  border: 1px solid #eceff4;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(16, 30, 64, 0.07);
+  overflow: hidden;
+}
+
+.hv2-inner.uok-dynamic-page .th-blog .blog-img {
+  margin: 8px 8px 0;
+  border-radius: 0;
+}
+
+.hv2-inner.uok-dynamic-page .th-blog .blog-content {
+  padding: 16px 18px 20px;
+}
+
+.hv2-inner.uok-dynamic-page .blog-meta {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--hv2-red);
+}
+
+.hv2-inner.uok-dynamic-page .blog-title {
+  margin: 8px 0 6px;
+  font-family: var(--hv2-serif);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--hv2-ink);
+}
+
+.hv2-inner.uok-dynamic-page .blog-text {
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* The theme sets checklist items in the display serif. */
+.hv2-inner.uok-dynamic-page .checklist li {
+  font-family: var(--hv2-sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--hv2-ink);
+}

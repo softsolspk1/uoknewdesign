@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- inner pages are legacy HTML whose jQuery plugins only initialise on a full page load, so links must not client-navigate. */
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import type { MenuNode } from '@/lib/menu';
 
 interface NavItem {
@@ -10,6 +11,8 @@ interface NavItem {
   // Top-level label in the admin-managed header menu whose children feed this
   // item's dropdown, so /admin/menus edits still show up on the homepage.
   match?: RegExp;
+  // Inner-page paths (beyond the dropdown links) that belong to this section.
+  section?: RegExp;
   fallback?: { label: string; url: string }[];
 }
 
@@ -19,6 +22,7 @@ const NAV: NavItem[] = [
     label: 'About',
     url: '/about',
     match: /^about/i,
+    section: /^\/(vice-chancellor|administration|registrar|policies|former-vice-chancellors)/,
     fallback: [
       { label: 'About & History', url: '/about' },
       { label: 'Vice Chancellor', url: '/vice-chancellor' },
@@ -29,6 +33,7 @@ const NAV: NavItem[] = [
     label: 'Academics',
     url: '/academics',
     match: /^academics/i,
+    section: /^\/(department-|examination|downloads|syllabus|dean-|faculty-)/,
     fallback: [
       { label: 'Faculties & Departments', url: '/academics' },
       { label: 'Examinations', url: '/examination' },
@@ -39,6 +44,7 @@ const NAV: NavItem[] = [
     label: 'Admissions',
     url: '/admissions',
     match: /^admissions/i,
+    section: /^\/(pg-|foreign-students|semester-fee)/,
     fallback: [
       { label: 'Admissions', url: '/admissions' },
       { label: 'Postgraduate Admissions', url: '/pg-admissions' },
@@ -50,6 +56,7 @@ const NAV: NavItem[] = [
     label: 'Research',
     url: '/research',
     match: /^research/i,
+    section: /^\/(institute-|journals|oric)/,
     fallback: [
       { label: 'Research Institutes Overview', url: '/research' },
       { label: 'Academic Journals', url: '/journals' },
@@ -91,6 +98,12 @@ const TOP_LINKS = [
   { label: 'Tenders', url: '/downloads' },
 ];
 
+function normalizePath(url: string) {
+  if (isExternal(url)) return null;
+  const p = (url.startsWith('/') ? url : `/${url}`).replace(/[?#].*$/, '').replace(/\.html$/, '');
+  return p.length > 1 ? p.replace(/\/$/, '') : p;
+}
+
 function isExternal(url: string) {
   return /^https?:\/\//i.test(url);
 }
@@ -103,14 +116,23 @@ function linkProps(url: string, target?: string | null) {
 
 export default function HomeHeader({ menu }: { menu: MenuNode[] }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = normalizePath(usePathname() || '/') || '/';
 
   const items = NAV.map((item) => {
     const fromMenu = item.match ? menu.find((m) => item.match!.test(m.label.trim())) : undefined;
     const children = fromMenu && fromMenu.children.length
       ? fromMenu.children.map((c) => ({ label: c.label, url: c.url, target: c.target }))
       : (item.fallback || []).map((c) => ({ ...c, target: null as string | null }));
-    return { ...item, children };
+    const active =
+      item.url === '/'
+        ? pathname === '/'
+        : pathname === item.url ||
+          !!item.section?.test(pathname) ||
+          children.some((c) => normalizePath(c.url) === pathname);
+    return { ...item, children, active };
   });
+  // A page linked from two dropdowns (e.g. Downloads) highlights only the first.
+  const activeIndex = items.findIndex((i) => i.active);
 
   return (
     <header className="hv2 hv2-site-header">
@@ -145,9 +167,13 @@ export default function HomeHeader({ menu }: { menu: MenuNode[] }) {
 
           <nav className={`hv2-nav${mobileOpen ? ' is-open' : ''}`} aria-label="Main">
             <ul>
-              {items.map((item) => (
+              {items.map((item, i) => (
                 <li key={item.label} className={item.children.length ? 'has-sub' : undefined}>
-                  <a href={item.url} className={item.url === '/' ? 'is-active' : undefined}>
+                  <a
+                    href={item.url}
+                    className={i === activeIndex ? 'is-active' : undefined}
+                    aria-current={i === activeIndex ? 'page' : undefined}
+                  >
                     {item.label}
                     {item.children.length > 0 && <i className="fa-solid fa-chevron-down" aria-hidden="true" />}
                   </a>

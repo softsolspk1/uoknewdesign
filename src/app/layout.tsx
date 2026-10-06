@@ -22,7 +22,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [headerMenu, footerMenu] = await Promise.all([getMenuTree("header"), getMenuTree("footer")]);
+  const headerMenu = await getMenuTree("header");
 
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
@@ -59,7 +59,7 @@ export default async function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <GoogleFontsLoader />
-        <SiteChrome headerMenu={headerMenu} footerMenu={footerMenu}>{children}</SiteChrome>
+        <SiteChrome headerMenu={headerMenu}>{children}</SiteChrome>
 
         {/* Google Analytics (GA4) */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-RH99XV0606" strategy="afterInteractive" />

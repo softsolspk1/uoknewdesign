@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import PageViewBeacon from '@/components/PageViewBeacon';
 import PdfDownloadButton from '@/components/PdfDownloadButton';
 import { ensureExtraSchema } from '@/lib/schemaBootstrap';
+import { cleanLegacyHtml, extractPageHero } from '@/lib/legacyHtml';
 
 // Pages are cached and served statically; edits go live immediately via
 // revalidatePath() in the admin pages API, this is just a safety-net TTL.
@@ -36,6 +37,10 @@ export async function generateStaticParams() {
   }
 }
 
+function titleFromSlug(slug: string) {
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const cleanSlug = decodeURIComponent(slug).replace(/\.html$/, '');
@@ -57,7 +62,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${cleanSlug.replace(/-/g, ' ')} — University of Karachi`,
+    title: `${titleFromSlug(cleanSlug)} — University of Karachi`,
   };
 }
 
@@ -107,10 +112,29 @@ export default async function DynamicLegacyPage({ params }: PageProps) {
     notFound();
   }
 
+  const fallbackTitle = page?.title || titleFromSlug(cleanSlug);
+  const { title, crumbs, body } = extractPageHero(cleanLegacyHtml(content), fallbackTitle);
+
   return (
     <>
       <PageViewBeacon path={`/${cleanSlug}`} />
-      <main className="uok-dynamic-page" dangerouslySetInnerHTML={{ __html: content }} />
+      <section className="hv2 hv2-page-hero">
+        <div className="hv2-page-hero-bg" aria-hidden="true" />
+        <div className="hv2-wrap hv2-page-hero-inner">
+          <nav aria-label="Breadcrumb">
+            <ol className="hv2-crumbs">
+              {crumbs.map((c, i) => (
+                <li key={`${c.label}-${i}`}>
+                  {c.href && i < crumbs.length - 1 ? <a href={c.href}>{c.label}</a> : <span aria-current="page">{c.label}</span>}
+                </li>
+              ))}
+            </ol>
+          </nav>
+          <h1 className="hv2-page-title">{title}</h1>
+          <p className="hv2-page-tag">University of Karachi · Est. 1951</p>
+        </div>
+      </section>
+      <main className="uok-dynamic-page hv2-inner" dangerouslySetInnerHTML={{ __html: body }} />
       <PdfDownloadButton url={page?.pdfUrl} label={page?.pdfLabel} />
     </>
   );

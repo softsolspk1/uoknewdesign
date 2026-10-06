@@ -292,6 +292,13 @@ body:has(.hv2-site-header) {
   margin: -2px 0 3px 34px;
 }
 
+.hv2 .hv2-brand-jubilee {
+  width: auto;
+  height: 74px;
+  padding-left: 14px;
+  border-left: 1px solid var(--hv2-line);
+}
+
 .hv2-brand-motto {
   font-size: 9px;
   font-weight: 600;
@@ -2343,6 +2350,11 @@ body:has(.hv2-site-header) {
 
   .hv2-brand-motto {
     font-size: 7.5px;
+  }
+
+  .hv2 .hv2-brand-jubilee {
+    height: 52px;
+    padding-left: 10px;
   }
 
   .hv2 .hv2-header-actions .hv2-btn {

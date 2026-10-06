@@ -163,6 +163,13 @@ export default function HomeHeader({ menu }: { menu: MenuNode[] }) {
               <span className="hv2-brand-urdu" lang="ur">جامعہ کراچی</span>
               <span className="hv2-brand-motto">Excellence • Knowledge • Service</span>
             </span>
+            <img
+              src="/uok101.jpg"
+              alt="Diamond Jubilee — 75 Years, 1951–2026"
+              className="hv2-brand-jubilee"
+              width={1024}
+              height={1024}
+            />
           </a>
 
           <nav className={`hv2-nav${mobileOpen ? ' is-open' : ''}`} aria-label="Main">

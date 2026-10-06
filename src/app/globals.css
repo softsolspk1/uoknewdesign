@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+  color: #c9002b !important;
+  background-color: #fff !important;
+  box-shadow: none !important;
+}
+.custom-accordion .accordion-button:focus {
+  box-shadow: none !important;
+  border-color: rgba(0,0,0,.125) !important;
+}
+.custom-accordion .accordion-item {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.custom-accordion .accordion-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+.th-hero-bg.hero-video-bg {
+  overflow: hidden;
+}
+.th-hero-bg.hero-video-bg .hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img-box1 .img1.img1-single {
+  width: 100%;
+}
+.img-box1 .img1.img1-single video {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Homepage feature-card / about-feature / Diamond Jubilee badge layout
+   fixes live in custom.css (the site's theme-override stylesheet) to avoid
+   duplicating the same rules in two files — see public/assets/css/custom.css. */
+
+/* Failsafe: .preloader (defined in style.css) is a fixed, full-screen,
+   opaque overlay that covers the already-rendered page until main.js hides
+   it on window.load. window.load only fires once every render-blocking CSS
+   file, all legacy vendor scripts, and preloaded images have finished --
+   on a slow connection that can take a very long time, leaving visitors
+   staring at a blank "Loading" screen with real content sitting invisibly
+   underneath it. This is pure CSS (no JS/network dependency) and this
+   stylesheet is the first one loaded, so it force-hides the overlay after
+   a short delay no matter how slow everything else is.  */
+@keyframes uok-preloader-failsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+.preloader {
+  animation: uok-preloader-failsafe 0s ease-in 1.5s forwards;
+}

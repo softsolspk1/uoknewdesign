@@ -1,0 +1,177 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                  String    @id @default(cuid())
+  email               String    @unique
+  password            String
+  name                String?
+  role                String    @default("student") // "admin", "subadmin", "student", "faculty"
+  assignedDepartments String?   // comma-separated department slugs or "all"
+  failedLoginAttempts Int       @default(0)
+  lockedUntil         DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model RateLimitHit {
+  id        String   @id @default(cuid())
+  bucket    String // e.g. "contact:203.0.113.5" or "upload:user@example.com"
+  createdAt DateTime @default(now())
+
+  @@index([bucket, createdAt])
+}
+
+model Page {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  title           String
+  category        String   @default("main") // "main", "department", "institute", "portal"
+  content         String   @db.Text
+  metaTitle       String?
+  metaDescription String?
+  pdfUrl          String? // optional attached PDF (prospectus, notice, form, etc.)
+  pdfLabel        String? // button text shown for the attached PDF, e.g. "Download Prospectus"
+  isPublished     Boolean  @default(true)
+  updatedBy       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String   @db.Text
+  status    String   @default("unread") // "unread", "read", "replied", "archived"
+  createdAt DateTime @default(now())
+}
+
+model PageView {
+  id        String   @id @default(cuid())
+  path      String
+  ip        String?
+  userAgent String?
+  referrer  String?
+  createdAt DateTime @default(now())
+}
+
+model Department {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String?
+  content     String?
+}
+
+model News {
+  id          String   @id @default(cuid())
+  title       String
+  excerpt     String? // short teaser shown on the homepage card
+  content     String   @db.Text
+  imageUrl    String?
+  pdfUrl      String? // optional attached PDF (e.g. notice, circular)
+  link        String? // "Read More" destination; defaults to "/" if empty
+  isPublished Boolean  @default(true)
+  order       Int      @default(0)
+  date        DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Slide {
+  id          String   @id @default(cuid())
+  heading     String
+  description String? // short description shown under the heading
+  imageUrl    String? // poster/fallback image, also used as the <video> poster
+  videoUrl    String?
+  isPublished Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model MenuItem {
+  id          String   @id @default(cuid())
+  location    String // "header" or "footer"
+  label       String
+  url         String   @default("#")
+  parentId    String? // null = top-level nav item (header) or footer column header
+  order       Int      @default(0)
+  target      String? // e.g. "_blank" for external links
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Faq {
+  id          String   @id @default(cuid())
+  question    String
+  answer      String   @db.Text
+  order       Int      @default(0)
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model InfoSubmission {
+  id     String @id @default(cuid())
+  type   String // "department", "faculty", "institute"
+  name   String // department/institute name, or faculty member's full name
+  status String @default("new") // "new", "reviewed", "archived"
+
+  departmentName String? // faculty: which department they belong to
+  headName       String? // department: Head of Department; institute: Director
+  designation    String? // faculty: designation/title
+  qualification  String? // faculty: highest qualification
+
+  email String?
+  phone String?
+
+  description     String? @db.Text // general overview / about
+  programsOffered String? @db.Text // department
+  facilities      String? @db.Text // department
+  focusAreas      String? @db.Text // institute
+  bio             String? @db.Text // faculty
+  publications    String? @db.Text // faculty
+
+  submittedByName  String?
+  submittedByEmail String?
+
+  images    InfoSubmissionImage[]
+  createdAt DateTime              @default(now())
+  updatedAt DateTime              @updatedAt
+
+  @@index([type, status])
+}
+
+model InfoSubmissionImage {
+  id           String         @id @default(cuid())
+  submissionId String
+  submission   InfoSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  url          String
+  order        Int            @default(0)
+  createdAt    DateTime       @default(now())
+
+  @@index([submissionId])
+}
+
+model EmailOtp {
+  id        String   @id @default(cuid())
+  email     String
+  code      String
+  token     String?
+  expiresAt DateTime
+  verified  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}

@@ -1,0 +1,282 @@
+{
+  "agriculture": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Agriculture & Agribusiness Management"
+  },
+  "appliedchemistry": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Applied Chemistry & Chemical Tech."
+  },
+  "appliedphysics": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Applied Physics"
+  },
+  "biochemistry": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Biochemistry"
+  },
+  "biotechnology": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Biotechnology"
+  },
+  "botany": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Botany"
+  },
+  "chemistry": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Chemistry"
+  },
+  "computerscience": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Computer Science (UBIT)"
+  },
+  "foodscience": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Food Science & Technology"
+  },
+  "genetics": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Genetics"
+  },
+  "geography": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Geography"
+  },
+  "geology": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Geology"
+  },
+  "healthphysical": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Health & Physical Education"
+  },
+  "mathematics": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Mathematics"
+  },
+  "microbiology": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Microbiology"
+  },
+  "petroleumtechnology": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Petroleum Technology"
+  },
+  "physics": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Physics"
+  },
+  "physiology": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Physiology"
+  },
+  "statistics": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Statistics"
+  },
+  "zoology": {
+    "facultyId": "fac-1",
+    "facultyName": "Faculty of Science",
+    "deptTitle": "Zoology"
+  },
+  "arabic": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Arabic"
+  },
+  "bengali": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Bengali"
+  },
+  "criminology": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Criminology"
+  },
+  "economics": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Economics"
+  },
+  "english": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "English"
+  },
+  "generalhistory": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "History"
+  },
+  "internationalrelations": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "International Relations"
+  },
+  "islamichistory": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Islamic History"
+  },
+  "libraryinformationsciences": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Library & Information Science"
+  },
+  "masscommunication": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Mass Communication"
+  },
+  "persian": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Persian"
+  },
+  "philosophy": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Philosophy"
+  },
+  "politicalscience": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Political Science"
+  },
+  "psychology": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Psychology"
+  },
+  "sindhi": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Sindhi"
+  },
+  "shahlatifchair": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Shah Latif Chair"
+  },
+  "socialwork": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Social Work"
+  },
+  "sociology": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Sociology"
+  },
+  "urdu": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Urdu"
+  },
+  "visualstudies": {
+    "facultyId": "fac-2",
+    "facultyName": "Faculty of Arts & Social Sciences",
+    "deptTitle": "Visual Studies"
+  },
+  "businessadministration": {
+    "facultyId": "fac-3",
+    "facultyName": "Faculty of Management & Administrative Sciences",
+    "deptTitle": "Karachi University Business School (KUBS)"
+  },
+  "commerce": {
+    "facultyId": "fac-3",
+    "facultyName": "Faculty of Management & Administrative Sciences",
+    "deptTitle": "Department of Commerce"
+  },
+  "publicadministration": {
+    "facultyId": "fac-3",
+    "facultyName": "Faculty of Management & Administrative Sciences",
+    "deptTitle": "Department of Public Administration (DPA)"
+  },
+  "pharmaceuticalchemistry": {
+    "facultyId": "fac-4",
+    "facultyName": "Faculty of Pharmacy & Pharmaceutical Sciences",
+    "deptTitle": "Pharmaceutical Chemistry"
+  },
+  "pharmaceutics": {
+    "facultyId": "fac-4",
+    "facultyName": "Faculty of Pharmacy & Pharmaceutical Sciences",
+    "deptTitle": "Pharmaceutics"
+  },
+  "pharmacology": {
+    "facultyId": "fac-4",
+    "facultyName": "Faculty of Pharmacy & Pharmaceutical Sciences",
+    "deptTitle": "Pharmacology"
+  },
+  "pharmacognosy": {
+    "facultyId": "fac-4",
+    "facultyName": "Faculty of Pharmacy & Pharmaceutical Sciences",
+    "deptTitle": "Pharmacognosy"
+  },
+  "pharmacypractice": {
+    "facultyId": "fac-4",
+    "facultyName": "Faculty of Pharmacy & Pharmaceutical Sciences",
+    "deptTitle": "Pharmacy Practice"
+  },
+  "education": {
+    "facultyId": "fac-5",
+    "facultyName": "Faculty of Education",
+    "deptTitle": "Department of Education"
+  },
+  "specialeducation": {
+    "facultyId": "fac-5",
+    "facultyName": "Faculty of Education",
+    "deptTitle": "Special Education"
+  },
+  "teachereducation": {
+    "facultyId": "fac-5",
+    "facultyName": "Faculty of Education",
+    "deptTitle": "Teacher Education"
+  },
+  "chemicalengineering": {
+    "facultyId": "fac-6",
+    "facultyName": "Faculty of Engineering",
+    "deptTitle": "Department of Chemical Engineering (Accredited with PEC)"
+  },
+  "islamiclearning": {
+    "facultyId": "fac-7",
+    "facultyName": "Faculty of Islamic Studies",
+    "deptTitle": "Islamic Learning"
+  },
+  "quranwasunnah": {
+    "facultyId": "fac-7",
+    "facultyName": "Faculty of Islamic Studies",
+    "deptTitle": "Qur'an wa Sunnah"
+  },
+  "usooluddin": {
+    "facultyId": "fac-7",
+    "facultyName": "Faculty of Islamic Studies",
+    "deptTitle": "Usool-ud-Din"
+  },
+  "law": {
+    "facultyId": "fac-8",
+    "facultyName": "Faculty of Law",
+    "deptTitle": "School of Law (LL.B / LL.M / PhD in Law)"
+  }
+}

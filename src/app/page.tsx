@@ -55,7 +55,7 @@ const HERO_SLIDES: HeroSlide[] = [
 
 const ANNOUNCEMENT_FALLBACK: Announcement[] = [
   { id: 'a1', date: '17 Nov 2024', title: 'Research Associates (Artificial Intelligence (AI) Applications in Health)', href: '/news' },
-  { id: 'a2', date: '07 Oct 2025', title: 'Admissions 2026: Applications now open for undergraduate & graduate programs', href: '/admissions' },
+  { id: 'a2', date: '07 Oct 2025', title: 'Admissions 2027: Applications now open for undergraduate & graduate programs', href: '/admissions' },
 ];
 
 const STATS = [
@@ -64,7 +64,7 @@ const STATS = [
   { icon: 'fa-book-open', value: '53', label: 'Departments' },
   { icon: 'fa-flask', value: '20', label: 'Research Institutes' },
   { icon: 'fa-globe', value: 'Global', label: 'Collaborations' },
-  { icon: 'fa-trophy', value: '73+', label: 'Years of Excellence' },
+  { icon: 'fa-trophy', value: '75', label: 'Years of Excellence' },
 ];
 
 const QUICK_CARDS = [
@@ -103,63 +103,81 @@ const QUICK_CARDS = [
 ];
 
 const FACULTY_TAGS = {
+  engineering: { label: 'Engineering', icon: 'fa-gears', tone: 'blue' },
+  science: { label: 'Science', icon: 'fa-graduation-cap', tone: 'green' },
+  arts: { label: 'Social Sciences', icon: 'fa-palette', tone: 'blue' },
+  management: { label: 'Management', icon: 'fa-chart-line', tone: 'green' },
+  pharmacy: { label: 'Pharmacy', icon: 'fa-flask', tone: 'red' },
   islamic: { label: 'Islamic Studies', icon: 'fa-book-quran', tone: 'red' },
   law: { label: 'Law', icon: 'fa-scale-balanced', tone: 'blue' },
-  science: { label: 'Science', icon: 'fa-graduation-cap', tone: 'green' },
-  arts: { label: 'Arts', icon: 'fa-palette', tone: 'blue' },
-  pharmacy: { label: 'Pharmacy', icon: 'fa-flask', tone: 'red' },
-  management: { label: 'Management', icon: 'fa-chart-line', tone: 'green' },
+  education: { label: 'Education', icon: 'fa-chalkboard-user', tone: 'green' },
+  medicine: { label: 'Medicine', icon: 'fa-stethoscope', tone: 'red' },
 } as const;
 
+// Images and copy mirror the faculty cards on uok.edu.pk.
 const FACULTIES: { name: string; text: string; image: string; href: string; tag: keyof typeof FACULTY_TAGS }[] = [
   {
-    name: 'Faculty of Islamic Studies',
-    text: 'Islamic Learning, Qur’an wa Sunnah, Uloom-ud-Din and the Sirah Chair.',
-    image: '/assets/img/uok/banner-nab.jpg',
+    name: 'Faculty of Engineering',
+    text: 'Chemical Engineering, Computer Systems Engineering and industrial technological innovation.',
+    image: '/photos/chem.jpg',
     href: '/academics',
-    tag: 'islamic',
-  },
-  {
-    name: 'Faculty of Law',
-    text: 'The School of Law preparing graduates for legal practice and public service.',
-    image: '/assets/img/uok/hero-ubit.jpg',
-    href: '/department-law',
-    tag: 'law',
+    tag: 'engineering',
   },
   {
     name: 'Faculty of Science',
     text: '21 departments spanning biology, chemistry, physics, mathematics and computer science.',
-    image: '/assets/img/uok/banner-chem.jpg',
+    image: '/assets/media/1790230994465-gub7bp.jpg',
     href: '/academics',
     tag: 'science',
   },
   {
     name: 'Faculty of Arts & Social Sciences',
-    text: 'Languages, humanities and social sciences shaping thoughtful citizens.',
+    text: 'Economics, English, History, Psychology, Mass Communication, International Relations and more.',
     image: '/Social Sciences.jpg',
     href: '/academics',
     tag: 'arts',
   },
   {
-    name: 'Faculty of Pharmacy',
-    text: 'Pharmaceutics, pharmacology, pharmacognosy and pharmacy practice.',
+    name: 'Faculty of Management & Admin. Sciences',
+    text: 'Karachi University Business School (KUBS), Department of Commerce and Public Administration.',
+    image: '/assets/media/1789973530547-8y15fd.jpg',
+    href: '/department-businessadministration',
+    tag: 'management',
+  },
+  {
+    name: 'Faculty of Pharmacy and Pharmaceutical Sciences',
+    text: 'Pharmaceutics, Pharmaceutical Chemistry, Pharmacology, Pharmacognosy and Pharmacy Practice.',
     image: '/assets/img/uok/pharmacy-faculty-building.jpg',
     href: '/department-pharmacy',
     tag: 'pharmacy',
   },
   {
-    name: 'Faculty of Management',
-    text: 'Business administration, commerce and public administration programs.',
-    image: '/assets/img/uok/banner-fst.jpg',
-    href: '/department-businessadministration',
-    tag: 'management',
+    name: 'Faculty of Islamic Studies',
+    text: 'Islamic Learning, Qur’an wa Sunnah, Usool-ud-Din and the Seerat-un-Nabi Chair.',
+    image: '/assets/img/uok/sheikh-zayed-islamic-center.jpg',
+    href: '/academics',
+    tag: 'islamic',
+  },
+  {
+    name: 'Faculty of Law',
+    text: 'The School of Law, preparing graduates for legal scholarship, advocacy and judiciary service.',
+    image: '/photos/law.jpg',
+    href: '/department-law',
+    tag: 'law',
   },
   {
     name: 'Faculty of Education',
-    text: 'Teacher education, special education and educational leadership.',
+    text: 'Education, Teacher Education, and Special Education fostering modern pedagogical leadership.',
     image: '/photos/education.jpg',
     href: '/department-education',
-    tag: 'arts',
+    tag: 'education',
+  },
+  {
+    name: 'Faculty of Medicine',
+    text: 'Affiliated medical colleges, postgraduate medical programs and clinical health sciences.',
+    image: '/assets/img/uok/atta-ur-rahman-labs.jpg',
+    href: '/academics',
+    tag: 'medicine',
   },
 ];
 
@@ -186,7 +204,7 @@ const NEWS_CARDS = [
   {
     tag: 'Academic Excellence',
     tone: 'navy',
-    title: 'Marking 73 Years of Academic Excellence',
+    title: 'Marking 75 Years of Academic Excellence',
     text: 'Since 1951, the University of Karachi has grown into one of Pakistan’s largest public universities.',
     image: '/assets/img/uok/hero-ubit.jpg',
     href: '/about',
@@ -194,9 +212,9 @@ const NEWS_CARDS = [
   {
     tag: 'Admissions',
     tone: 'red',
-    title: 'Admissions 2026 Applications Now Open',
+    title: 'Admissions 2027 Applications Now Open',
     text: 'Undergraduate, graduate and evening program applications are open for the new academic year.',
-    image: '/assets/img/uok/silver-jubilee-gate.jpg',
+    image: '/assets/img/uok/header-gate.jpg',
     href: '/admissions',
   },
 ];
@@ -245,11 +263,11 @@ const ADMISSION_POINTS = [
 
 const INSTITUTES = [
   { name: 'Dr. Panjwani Center for Molecular Medicine', image: '/assets/img/uok/banner-elib.jpg', href: 'https://www.iccs.edu/page-pcmd' },
-  { name: 'Center of Excellence in Marine Biology', image: '/assets/img/uok/banner-nab.jpg', href: 'https://marinebiology.edu.pk/' },
-  { name: 'Institute of Environmental Studies', image: '/assets/img/uok/banner-fst.jpg', href: '/institute-ies' },
+  { name: 'Center of Excellence in Marine Biology', image: '/assets/img/uok/marine-biology-institute.jpg', href: 'https://marinebiology.edu.pk/' },
+  { name: 'Institute of Environmental Studies', image: '/assets/img/uok/environmental-studies-institute.jpg', href: '/institute-ies' },
   { name: 'H.E.J. Research Institute of Chemistry', image: '/assets/img/uok/hej-research-institute-2.jpg', href: 'http://www.iccs.edu' },
   { name: 'Dr. A.Q. Khan Institute of Biotechnology', image: '/assets/img/uok/dr-aq-khan-institute.jpg', href: '/institute-kibge' },
-  { name: 'Applied Economics Research Centre', image: '/assets/img/uok/atta-ur-rahman-labs.jpg', href: 'http://www.aerc.edu.pk' },
+  { name: 'Applied Economics Research Centre', image: '/assets/img/uok/applied-economics-research-centre.jpg', href: 'http://www.aerc.edu.pk' },
   { name: 'Latif Ebrahim Jamal Science Information Center', image: '/assets/img/uok/lej-science-information-center.jpg', href: '/research' },
   { name: 'Sheikh Zayed Islamic Center', image: '/assets/img/uok/sheikh-zayed-islamic-center.jpg', href: 'http://szic.edu.pk/' },
 ];
@@ -467,7 +485,7 @@ export default async function Home() {
         <section className="hv2-wrap hv2-promos">
           <article className="hv2-promo-adm" style={{ backgroundImage: 'url("/assets/img/uok/banner-nab.jpg")' }}>
             <div className="hv2-promo-adm-inner">
-              <p className="hv2-promo-kicker">Admissions 2026</p>
+              <p className="hv2-promo-kicker">Admissions 2027</p>
               <p className="hv2-promo-stamp">Admissions - 2026</p>
               <h2>
                 Among Pakistan’s
@@ -506,7 +524,7 @@ export default async function Home() {
 
           <article className="hv2-promo-future" style={{ backgroundImage: 'url("/assets/img/about/about-thumb2-2.jpg")' }}>
             <div className="hv2-promo-future-top">
-              <p className="hv2-promo-kicker is-small">Admissions 2026</p>
+              <p className="hv2-promo-kicker is-small">Admissions 2027</p>
               <h2>Your Future Starts Here</h2>
               <p>Join a community of thinkers, doers and changemakers at Pakistan’s largest public university.</p>
               <a href="/admissions" className="hv2-btn hv2-btn-pink hv2-btn-xs">

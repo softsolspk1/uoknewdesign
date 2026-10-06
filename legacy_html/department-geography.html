@@ -411,10 +411,8 @@
     </div>
   </div>
 </header>
-
-
-<div class="breadcumb-wrapper position-relative" data-bg-src="assets/img/shape/breadcrumb-shep.png">
-  <div class="breadcumb-banner"><img src="assets/img/breadcrumb/breadcumb-banner.png" alt="University of Karachi main entrance gate" loading="eager" fetchpriority="high" decoding="async"></div>
+<div class="breadcumb-wrapper position-relative background-image" style="background-image: url(&quot;assets/img/shape/breadcrumb-shep.png&quot;);">
+  <div class="breadcumb-banner"><img src="assets/img/breadcrumb/breadcumb-banner.png" alt="University of Karachi main entrance gate" loading="eager" fetchpriority="high" decoding="async" class=""></div>
   <div class="breadcumb-shape"><img src="assets/img/shape/triangle-light.png" alt="shape" class="jump" loading="lazy" decoding="async"></div>
   <div class="container th-container4">
     <div class="row">
@@ -427,7 +425,7 @@
     </div>
   </div>
 </div>
-<section class="th-program-wrapper program-details space-top space-extra2-bottom overflow-hidden">
+<section class="th-program-wrapper program-details space-top space-extra2-bottom overflow-hidden shape-mockup-wrap">
   <div class="container th-container4">
     <div class="row gy-4 gx-60">
       <div class="col-xl-8">
@@ -440,12 +438,17 @@
           <div class="program-wrapp">
             <div class="discount-wrapp">
               <div class="logo"><img src="assets/img/circle-logo2.svg" alt="img" loading="lazy" decoding="async"></div>
-              <div class="discount-tag"><span class="discount-anime">* EST. 1952 * Faculty of Science</span></div>
+              <div class="discount-tag"><span class="discount-anime"><span class="char1">*</span><span class="char2"> </span><span class="char3">E</span><span class="char4">S</span><span class="char5">T</span><span class="char6">.</span><span class="char7"> </span><span class="char8">1</span><span class="char9">9</span><span class="char10">5</span><span class="char11">2</span><span class="char12"> </span><span class="char13">*</span><span class="char14"> </span><span class="char15">F</span><span class="char16">a</span><span class="char17">c</span><span class="char18">u</span><span class="char19">l</span><span class="char20">t</span><span class="char21">y</span><span class="char22"> </span><span class="char23">o</span><span class="char24">f</span><span class="char25"> </span><span class="char26">S</span><span class="char27">c</span><span class="char28">i</span><span class="char29">e</span><span class="char30">n</span><span class="char31">c</span><span class="char32">e</span></span></div>
             </div>
           </div>
           <div class="row gx-30 mt-30">
-            <div class="col-md-6 mb-30"><div class="global-img"><img class="w-100" src="assets/img/uok/banner-nab.jpg" alt="University of Karachi" loading="lazy" decoding="async"></div></div>
-            <div class="col-md-6 mb-30"><div class="global-img"><img class="w-100" src="assets/img/uok/header.jpg" alt="University of Karachi" loading="lazy" decoding="async"></div></div>
+            <div class="col-md-8 mx-auto mb-30">
+              <div class="global-img photo-placeholder-box" style="aspect-ratio:1/1;max-width:420px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#e6f4ea,#f4f8f5);border:2px dashed #7c0405;border-radius:12px;text-align:center;padding:24px;">
+                <i class="fa-solid fa-camera" style="font-size:34px;color:#7c0405;opacity:0.55;margin-bottom:14px;"></i>
+                <span style="font-weight:700;color:#1a3a2a;font-size:16px;line-height:1.3;">Department of Geography</span>
+                <span style="font-size:12px;color:#6c757d;margin-top:6px;text-transform:uppercase;letter-spacing:0.5px;">Photo Coming Soon</span>
+              </div>
+            </div>
           </div>
           <div class="program-content">
             <div class="program-grid">
@@ -466,7 +469,7 @@
           <p class="mt-50">More than twenty professors have served the department as chairpersons over its history, which has been shaped by leading Pakistani geographers educated in the USA, UK, Germany and India. The department maintains an excellent academic history and qualified faculty of professors, assistant professors and visiting faculty.</p>
 
           <span class="text-title">Careers</span><h4 class="h4">Career Opportunities</h4><p>Geography graduates find roles in education, administration and private organizations, including cellular companies, K-Electric, SSGC, the Archaeological Department and provincial planning departments, as well as national bodies such as WAPDA, OGDC, PPL and the Geological Survey of Pakistan, which value geographers' geo-spatial skills.</p>
-          <div class="mt-40"><a href="https://uokadmission.edu.pk/login" target="_blank" rel="noopener noreferrer" class="th-btn th-icon">Apply via Admissions</a></div>
+          <div class="mt-40"><a href="/admissions" class="th-btn th-icon">Apply via Admissions</a></div>
         </div>
       </div>
       <div class="col-xl-4">
@@ -495,7 +498,7 @@
       </div>
     </div>
   </div>
-  <div class="shape-mockup jump d-none d-xxl-block" data-bottom="0%" data-right="0%"><img src="assets/img/shape/faq-2-1.png" alt="University of Karachi" loading="lazy" decoding="async"></div>
+  <div class="shape-mockup jump d-none d-xxl-block" style="right: 0%; bottom: 0%;"><img src="assets/img/shape/faq-2-1.png" alt="University of Karachi" loading="lazy" decoding="async"></div>
 </section>
 
 <section class="th-program-wrapper space-top space-extra2-bottom overflow-hidden" id="department-details">
@@ -514,10 +517,10 @@
             <div class="dept-nav-body p-2 bg-white">
               <div class="nav flex-column nav-pills dept-nav-pills" id="dept-tabs" role="tablist" aria-orientation="vertical">
 
-      <button class="nav-link active" id="tab-introduction-btn" data-bs-toggle="pill" data-bs-target="#tab-introduction" type="button" role="tab" aria-controls="tab-introduction" aria-selected="true">
+      <button class="nav-link" id="tab-introduction-btn" data-bs-toggle="pill" data-bs-target="#tab-introduction" type="button" role="tab" aria-controls="tab-introduction" aria-selected="false">
         <i class="fa-solid fa-circle-info"></i> <span>Introduction</span>
       </button>
-      <button class="nav-link" id="tab-faculty-btn" data-bs-toggle="pill" data-bs-target="#tab-faculty" type="button" role="tab" aria-controls="tab-faculty" aria-selected="false">
+      <button class="nav-link active" id="tab-faculty-btn" data-bs-toggle="pill" data-bs-target="#tab-faculty" type="button" role="tab" aria-controls="tab-faculty" aria-selected="true">
         <i class="fa-solid fa-chalkboard-user"></i> <span>Faculty</span>
       </button>
       <button class="nav-link" id="tab-mission-btn" data-bs-toggle="pill" data-bs-target="#tab-mission" type="button" role="tab" aria-controls="tab-mission" aria-selected="false">
@@ -564,26 +567,26 @@
       <div class="col-xl-9 col-lg-8">
         <div class="tab-content dept-tab-content bg-white p-4 p-md-5 rounded-4 shadow-sm border" id="dept-tabContent">
 
-      <div class="tab-pane fade show active" id="tab-introduction" role="tabpanel" aria-labelledby="tab-introduction-btn">
+      <div class="tab-pane fade" id="tab-introduction" role="tabpanel" aria-labelledby="tab-introduction-btn">
         <div class="dept-pane-header">
-          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Overview & History</span>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Overview &amp; History</span>
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Introduction</h2>
         </div>
         <div class="dept-pane-body content-typography">
           <h4 class="dept-subheading fs-5 text-dark fw-bold mt-4 mb-3">Chairman:  Prof. Dr. Shamshad Akhtar.</h4>
- <br /> 
+ <br> 
  <div class="table-responsive my-3"><table class="table table-bordered table-striped table-hover align-middle">
-    <tr>
-      <td><img src="/faculties/geography/images/geodept.jpg" alt="geography" /></td>
+    <tbody><tr>
+      <td><img src="/assets/media/1790661258103-7a5sf0.jpg" alt="geography" class=""></td>
       
     </tr>
-  </table></div>
+  </tbody></table></div>
 
 
   <p>Department of Geography is one of the pioneer departments of University of Karachi. It was established in 1952 under the chairmanship of Professor Dr. Manick B. Pithawala. Professor Oscar Schmider was one of the leading German Geographers who served as Chairman in the department. Department has been providing teaching and research in various fields of Geography for the last sixty years. Department has been served by leading Pakistani Geographers who were educated in USA, UK, Germany, India etc. The Department has an excellent academic history. The Department of Geography is the only Department among Universities of Pakistan which hosted International Geography Union (IGU) Conference. More than twenty Professors have served the Department as Chairpersons. Presently Prof. Dr. Sheeba Afsar is Chairperson. The Department has qualified academic staff which includes Professors, Assistant Professors and Visiting Faculty.</p>
 <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">&nbsp;</h5>
 <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">Career Opportunities</h5>
-<p>Geography graduates with Master's degree generally find useful employment in some major fields, i.e. education, administration, and private organizatio& other cellular companies, K-Electric, SSGC, Archeological Department, Planning Commission, and provincial departments of planning and development have employed geographers for their Geo-Spatial skills. Private firms, and Non-Governmental Organizations i.e. ECIL Consulting Services, Cabernet, Fiber optics, (NGOs) also utilize the expertise of geographers. There are various fields of application in Pakistan where geographer can explore job opportunities successfully to survive and Empowering Communities.</p>
+<p>Geography graduates with Master's degree generally find useful employment in some major fields, i.e. education, administration, and private organizatio&amp; other cellular companies, K-Electric, SSGC, Archeological Department, Planning Commission, and provincial departments of planning and development have employed geographers for their Geo-Spatial skills. Private firms, and Non-Governmental Organizations i.e. ECIL Consulting Services, Cabernet, Fiber optics, (NGOs) also utilize the expertise of geographers. There are various fields of application in Pakistan where geographer can explore job opportunities successfully to survive and Empowering Communities.</p>
 
 <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">Industrial Link</h5>
 National and Multinational Organizations  where the Graduates of the Department occupy key positions.
@@ -629,26 +632,26 @@ National and Multinational Organizations  where the Graduates of the Department 
 <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2"><strong>DIAMOND JUBILEE CELEBRATION</strong></h5>
 
 <p>Department of Geography, University of Karachi  is celebrated its Diamond Jubilee from 6th to 8th  November 2012, in the Department/University as per deliberations of members of  the Organizing Committee and Alumni :: <strong><a href="/faculties/geography/images/diamond.pdf" target="_blank">Read More</a></strong> | <a href="/faculties/geography/images/ad.pdf" target="_blank"><strong>Ad</strong></a> | <a href="/faculties/geography/images/portfolioi.pdf" target="_blank"><strong>Portfolio</strong></a> </p>
-<p><br />
+<p><br>
 </p>
   <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">&nbsp;</h5>
         </div>
       </div>
-      <div class="tab-pane fade" id="tab-faculty" role="tabpanel" aria-labelledby="tab-faculty-btn">
+      <div class="tab-pane fade active show" id="tab-faculty" role="tabpanel" aria-labelledby="tab-faculty-btn">
         <div class="dept-pane-header">
-          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Academic Staff & Researchers</span>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Academic Staff &amp; Researchers</span>
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Faculty</h2>
         </div>
         <div class="dept-pane-body content-typography">
           <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">Professors</h5>
-  <p>   Dr. Shamshad Akhtar <a href="/faculties/geography/docs/sakhtar.pdf" target="_blank" class="dept-pdf-badge"><i class="fa-solid fa-file-pdf"></i> Profile</a><br />
-        Dr. Sheeba Afsar <a href="/faculties/geography/docs/sheebaa.pdf" target="_blank" class="dept-pdf-badge"><i class="fa-solid fa-file-pdf"></i> Profile</a><br />
+  <p>   Dr. Shamshad Akhtar&nbsp;&nbsp;<a href="/assets/media/1790623966188-iqtx6j.pdf" target="_blank" rel="noopener noreferrer" style="letter-spacing: 0.36px; display: inline !important;">Profile</a><br><br>
+        Dr. Sheeba Afsar <a href="/faculties/geography/docs/sheebaa.pdf" target="_blank" class="dept-pdf-badge">Profile</a><br>
     </p>
   
   <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">Associate Professors</h5>
-  <p>   Dr. Imran Ahmed Khan <a href="/faculties/geography/docs/imranak.pdf" target="_blank" class="dept-pdf-badge"><i class="fa-solid fa-file-pdf"></i> Profile</a><br />
-        Dr. Salman Zubair<a href="/faculties/geography/docs/salmanz.pdf" target="_blank" class="dept-pdf-badge"><i class="fa-solid fa-file-pdf"></i> Profile</a><br />
-        Dr. Saima Shaikh <a href="/faculties/geography/docs/saimas.pdf" target="_blank" class="dept-pdf-badge"><i class="fa-solid fa-file-pdf"></i> Profile</a><br />
+  <p>   Dr. Imran Ahmed Khan <a href="/faculties/geography/docs/imranak.pdf" target="_blank" class="dept-pdf-badge">Profile</a><br>
+        Dr. Salman Zubair<a href="/faculties/geography/docs/salmanz.pdf" target="_blank" class="dept-pdf-badge">Profile</a><br>
+        Dr. Saima Shaikh <a href="/faculties/geography/docs/saimas.pdf" target="_blank" class="dept-pdf-badge">Profile</a><br>
         
         
   
@@ -659,10 +662,10 @@ National and Multinational Organizations  where the Graduates of the Department 
   <p>    
     
    
-    Dr. Anila Kausar <a href="/faculties/geography/docs/anilakausar.pdf" target="_blank" class="dept-pdf-badge"><i class="fa-solid fa-file-pdf"></i> Profile</a><br /> 
-    Dr. Yasmeen Anis <a href="/faculties/geography/docs/yasmeena.pdf" target="_blank" class="dept-pdf-badge"><i class="fa-solid fa-file-pdf"></i> Profile</a><br /> 
+    Dr. Anila Kausar <a href="/faculties/geography/docs/anilakausar.pdf" target="_blank" class="dept-pdf-badge">Profile</a><br> 
+    Dr. Yasmeen Anis <a href="/assets/media/1791288015333-h8tok3.pdf" target="_blank" rel="noopener noreferrer">Profile</a><br> 
     
-    Dr. Lubna Ghazal (T) <a href="/faculties/geography/docs/lubnag.pdf" target="_blank" class="dept-pdf-badge"><i class="fa-solid fa-file-pdf"></i> Profile</a><br />
+    Dr. Lubna Ghazal (T) <a href="/faculties/geography/docs/lubnag.pdf" target="_blank" class="dept-pdf-badge">Profile</a><br>
     
     
       
@@ -671,7 +674,7 @@ National and Multinational Organizations  where the Graduates of the Department 
   
   
   <div class="table-responsive my-3"><table class="table table-bordered table-striped table-hover align-middle">
-    <tr>
+    <tbody><tr>
       <td><strong>Name of Teacher </strong></td>
       <td><strong>Areas</strong></td>
     </tr>
@@ -709,24 +712,24 @@ National and Multinational Organizations  where the Graduates of the Department 
       <td><p>Dr. Imran Ahmed    Khan</p></td>
       <td><p>GIS and Public Health, Biogeography, Diseases Ecology, Human Geography , Medical Geography and Economic Geography</p></td>
     </tr>
-  </table></div>
+  </tbody></table>
         </div>
       </div>
       <div class="tab-pane fade" id="tab-mission" role="tabpanel" aria-labelledby="tab-mission-btn">
         <div class="dept-pane-header">
-          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Vision & Mission</span>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Vision &amp; Mission</span>
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Mission</h2>
         </div>
         <div class="dept-pane-body content-typography">
           <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2"></h5>
  
-  <p><strong>Mission</strong><br />
+  <p><strong>Mission</strong><br>
     The Department of Geography at  the University of Karachi aims to make students highly professional in the  field of Geography, GIS technology, and Remote Sensing technology. They provide  field survey skills, professional knowledge, and training opportunities for  teachers. The program's objectives align with the university mission and are  measured through comprehensive assessments. Strategies include practical field  trainings, integrating advanced technologies, industry collaboration, and  regular program updates to achieve these objectives.</p>
     <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2"></h5>
-  <p><strong>Vision</strong><br />
+  <p><strong>Vision</strong><br>
     The Department of Geography at  the University of Karachi, established in 1952, has a rich history of  leadership from renowned geographers. It offers comprehensive teaching and  research in various geographic fields, producing a large number of graduates  working globally. The department, which has the highest number of Ph.D. /  M.Phil. graduates in Pakistan, offers graduate and post-graduate programs and  has hosted several geography conferences. It emphasizes practical geographical  research skills and maintains strong international academic partnerships.</p>
  
-<h4 class="dept-subheading fs-5 text-dark fw-bold mt-4 mb-3"><br />
+<h4 class="dept-subheading fs-5 text-dark fw-bold mt-4 mb-3"><br>
 </h4>
   <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">&nbsp;</h5>
         </div>
@@ -746,32 +749,32 @@ National and Multinational Organizations  where the Graduates of the Department 
 </ul>
   
   <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2"><strong>Eligibility<strong>&amp; </strong></strong><strong>Allocated<strong> Seats</strong></strong></h5>
-  <p><br />
+  <p><br>
     <em><u>B.S.: </u></em></p>
   <ul>
     <li>Intermediate Pre-Engineering - <strong>60 seats</strong></li>
-    <li>Intermediate Pre-Medical  - <strong>30seats</strong></li>
+    <li>Intermediate Pre-Medical&nbsp; - <strong>30seats</strong></li>
     <li>Intermediate Arts - <strong>30seats</strong></li>
   </ul>
   <p><em><u>B.S 3rd Year:</u></em></p>
   <ul>
-    <li>Science group  - <strong>25 seats</strong></li>
-    <li>Arts group - <strong>20 seats</strong></li>
+    <li>Science group&nbsp; - <strong>25 seats</strong></li>
+    <li>Arts group&nbsp;- <strong>20 seats</strong></li>
   </ul>
-  <p><em><u>M.S.</u></em>:  M.Sc. or B.S. in Geography - <strong>10 seats</strong><br />
-    <em><u>Ph.D.</u></em>:M.S. / M.Phil. (Geography) or M.S. (RS/GIS) + B.S. (Geography) - <strong>02 seats</strong><br />
+  <p><em><u>M.S.</u></em>:  M.Sc. or B.S. in Geography -&nbsp;<strong>10 seats</strong><br>
+    <em><u>Ph.D.</u></em>:M.S. / M.Phil. (Geography) or M.S. (RS/GIS) + B.S. (Geography)&nbsp;- <strong>02 seats</strong><br>
   </p>
         </div>
       </div>
       <div class="tab-pane fade" id="tab-courses" role="tabpanel" aria-labelledby="tab-courses-btn">
         <div class="dept-pane-header">
-          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Academic Curriculum & Syllabi</span>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Academic Curriculum &amp; Syllabi</span>
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Courses</h2>
         </div>
         <div class="dept-pane-body content-typography">
           <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">B.S. Program  in Geography</h5>
       <div class="table-responsive my-3"><table class="table table-bordered table-striped table-hover align-middle">
-      <tr>
+      <tbody><tr>
       <td colspan="4">First Semster</td>
       </tr>
       <tr>
@@ -799,13 +802,13 @@ National and Multinational Organizations  where the Graduates of the Department 
         <td>3</td>
       </tr>
       <tr>
-        <td  p>3</td>
-        <td  p>301</td>
+        <td p="">3</td>
+        <td p="">301</td>
         <td>Subsidiary–II</td>
         <td>3</td>
       </tr>
       <tr>
-        <td  p>4</td>
+        <td p="">4</td>
         <td>300.1(I.S.)</td>
         <td>Islamic Studies (Compulsory)</td>
         <td>3</td>
@@ -1060,7 +1063,7 @@ National and Multinational Organizations  where the Graduates of the Department 
     <tr>
       <td>2</td>
       <td>611</td>
-      <td>Field Techniques (Compulsory)</td>
+      <td>Field Techniques&nbsp;(Compulsory)</td>
       <td>3</td>
     </tr>
     <tr>
@@ -1126,11 +1129,11 @@ National and Multinational Organizations  where the Graduates of the Department 
       <td>Community Development (Compulsory) </td>
       <td>3 </td>
     </tr>
-  </table></div>
+  </tbody></table></div>
  
  
  <div class="table-responsive my-3"><table class="table table-bordered table-striped table-hover align-middle">
-      <tr>
+      <tbody><tr>
       <td colspan="4">List of Optional Courses for Seventh and Eight Semesters Select any four Optional Courses in each Semester</td>
       </tr>
       <tr>
@@ -1289,11 +1292,11 @@ National and Multinational Organizations  where the Graduates of the Department 
      <td>Regional Development and Planning</td>
      <td>3</td>
    </tr>
- </table></div>
+ </tbody></table></div>
 
 
 <div class="table-responsive my-3"><table class="table table-bordered table-striped table-hover align-middle">
-      <tr>
+      <tbody><tr>
       <td colspan="4">New Proposed Course Outlines
 </td>
       </tr>
@@ -1363,14 +1366,14 @@ National and Multinational Organizations  where the Graduates of the Department 
     <td>Urban Landscape Ecology</td>
     <td>3</td>
   </tr>
-</table></div>
+</tbody></table></div>
 
  <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">&nbsp;</h5>
         </div>
       </div>
       <div class="tab-pane fade" id="tab-objectives" role="tabpanel" aria-labelledby="tab-objectives-btn">
         <div class="dept-pane-header">
-          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Vision & Mission</span>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Vision &amp; Mission</span>
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Objectives</h2>
         </div>
         <div class="dept-pane-body content-typography">
@@ -1380,17 +1383,17 @@ National and Multinational Organizations  where the Graduates of the Department 
       </div>
       <div class="tab-pane fade" id="tab-facilities" role="tabpanel" aria-labelledby="tab-facilities-btn">
         <div class="dept-pane-header">
-          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Infrastructure & Laboratories</span>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Infrastructure &amp; Laboratories</span>
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Facilities</h2>
         </div>
         <div class="dept-pane-body content-typography">
           <p>The Department is housed in a two storied  building where lecture rooms, laboratories, seminar library and staff rooms are  provided. The seminar library caters for the immediate reading needs of the  students and is provided with 1000 books form donations. The Map Library of the  Department is well equipped&nbsp;with topographical maps of various areas on  various scales. Total number of such maps is about 2000, aerial photographs and  satellite imageries&nbsp;are available in the Department. </p>
-    <p><strong><u>GIS Lab.</u></strong><br />
+    <p><strong><u>GIS Lab.</u></strong><br>
     Computer laboratory of the Department of Geography was  established in March, 1988. Initially it consisted of three PCs and a printer.  Currently this laboratory has fifteen computers, Intel Core 2 duo. Department  has purchased MapInfo Professional Software, which is one of the state-of-art  packages for GIS and Remote Sensing application. Presently, it is being used  for the purpose of teaching and research, in the fields of computer aided  cartography, GIS and Remote Sensing.</p>
-    <p><strong><u>Prehistoric Museum</u></strong><br />
+    <p><strong><u>Prehistoric Museum</u></strong><br>
 On  the ground floor of the Department there is a Museum containing relic of  prehistoric cultures of Pakistan. These have been collected from an area  extending to 120 miles around Karachi. The material ranges from early  Paleolithic age through Middle and upper Paleolithic, Mesolithic and Neolithic  to Harappan Age. The museum also displays vertebrate fossils of Miocene Age  derived from Sindh Kohistan and coastal area of Sindh.</p>
-    <p><strong><u>Seminar Library:</u></strong><br />
-    The department contains a fully fledged seminar library  which offers books, Atlases, different types of Maps and topographic sheets to  students. A section donated by Dr. I. H. Zaidi and Dr. M. I. Siddiqui is also  available having their valuable collection of books on various fields of  Geography. Different precious research journals and published material are also  available.  </p>
+    <p><strong><u>Seminar Library:</u></strong><br>
+    The department contains a fully fledged seminar library  which offers books, Atlases, different types of Maps and topographic sheets to  students. A section donated by Dr. I. H. Zaidi and Dr. M. I. Siddiqui is also  available having their valuable collection of books on various fields of  Geography. Different precious research journals and published material are also  available.&nbsp; </p>
         </div>
       </div>
       <div class="tab-pane fade" id="tab-research" role="tabpanel" aria-labelledby="tab-research-btn">
@@ -1405,7 +1408,7 @@ On  the ground floor of the Department there is a Museum containing relic of  pr
   <p><strong><u>Transport  Planners</u></strong>: In TEB (Traffic Engineering Bureau) Karachi Planners  for Katchi abadies, KMC (Karachi Metropolitan Corporation) Sindh Katchi Abadies  authority </p>
   <p><strong><u>Cartographer:</u></strong> In  survey of Pakistan, in Geological survey of Pakistan, in Civil Aviation,  Meteorological department, SUPARCO, in Oil Companies, Geodetic Surveying </p>
   <p><strong><u>Consultants</u></strong>: In engineering firms like ECIL, EA/ES, BlueChip Intl., Proplan etc., Soil  Survey of Pakistan, a number of NGOs, Atlas publishing companies (like OUP, FEP  etc.) </p>
-  <p><strong></u>Others</strong></strong>:  Population census organization, statistical bureau, AKRSP, (Agha Khan Rural  Support Program).</p>
+  <p><strong>Others</strong>:  Population census organization, statistical bureau, AKRSP, (Agha Khan Rural  Support Program).</p>
 
 <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">Publications</h5>
   <ul>
@@ -1414,7 +1417,7 @@ On  the ground floor of the Department there is a Museum containing relic of  pr
   </ul>
         </div>
       </div>
-      <div class="tab-pane fade" id="tab-contact" role="tabpanel" aria-labelledby="tab-contact-btn">
+      <div class="tab-pane fade active show" id="tab-contact" role="tabpanel" aria-labelledby="tab-contact-btn">
         <div class="dept-pane-header">
           <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Get In Touch</span>
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Contact</h2>
@@ -1426,7 +1429,6 @@ On  the ground floor of the Department there is a Museum containing relic of  pr
   <p>    UNIVERSITY OF KARACHI, KARACHI-75270</p>
   <p>    Telephone: 99261300-06 Ext: 2292 </p>
   <p>Department Email: <a href="mailto:geography@uok.edu.pk">geography@uok.edu.pk</a></p>
-  <p>Chairman Email: &nbsp; &nbsp;<a href="mailto:sheebanaeem@uok.edu.pk">sheebanaeem@uok.edu.pk</a></p>
         </div>
       </div>
         </div>
@@ -1466,7 +1468,7 @@ On  the ground floor of the Department there is a Museum containing relic of  pr
     });
   })();
   </script>
-</section>
+</div></section>
 
 <section class="apply-stadum-area bg-title position-relative space overflow-hidden">
   <div class="container">
@@ -1480,27 +1482,28 @@ On  the ground floor of the Department there is a Museum containing relic of  pr
           </div>
         </div>
         <div class="apply-stadum-action th-btn-wrap wow fadeInUp" data-wow-delay=".10s">
-          <a href="https://uokadmission.edu.pk/login" target="_blank" rel="noopener noreferrer" class="th-btn th-icon white-hover">Go to Admissions</a>
+          <a href="/admissions" class="th-btn th-icon white-hover">Go to Admissions</a>
         </div>
       </div>
     </div>
   </div>
   <span class="apply-stadum-shape wow fadeInRight" data-wow-delay=".3s"></span>
 </section>
-<div class="marquee-area space overflow-hidden overflow-hidden">
+<div class="marquee-area space overflow-hidden">
   <div class="container-fluid p-0">
-    <div class="swiper th-slider marquee-slider1" data-slider-options='{"breakpoints":{"0":{"slidesPerView":"auto"}},"autoplay":{"delay":0,"disableOnInteraction":false},"noSwiping":"true","speed":10000,"spaceBetween":40}'>
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">EXCELLENCE</a></div></div>
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/scollarship.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">RESEARCH</a></div></div>
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">INNOVATION</a></div></div>
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">KNOWLEDGE</a></div></div>
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/scollarship.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">DISCOVERY</a></div></div>
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">EXCELLENCE</a></div></div>
-      </div>
+    <div class="swiper th-slider marquee-slider1" data-slider-options="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:&quot;auto&quot;}},&quot;autoplay&quot;:{&quot;delay&quot;:0,&quot;disableOnInteraction&quot;:false},&quot;noSwiping&quot;:&quot;true&quot;,&quot;speed&quot;:10000,&quot;spaceBetween&quot;:40}">
+      <div class="swiper-wrapper" id="swiper-wrapper-49c3e2a011e1f649" aria-live="off">
+        
+        
+        
+        
+        
+        
+      <div class="swiper-slide" role="group" aria-label="1 / 6" data-swiper-slide-index="0" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">EXCELLENCE</a></div></div><div class="swiper-slide" role="group" aria-label="2 / 6" data-swiper-slide-index="1" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/scollarship.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">RESEARCH</a></div></div><div class="swiper-slide" role="group" aria-label="3 / 6" data-swiper-slide-index="2" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">INNOVATION</a></div></div><div class="swiper-slide" role="group" aria-label="4 / 6" data-swiper-slide-index="3" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">KNOWLEDGE</a></div></div><div class="swiper-slide" role="group" aria-label="5 / 6" data-swiper-slide-index="4" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/scollarship.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">DISCOVERY</a></div></div><div class="swiper-slide" role="group" aria-label="6 / 6" data-swiper-slide-index="5" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">EXCELLENCE</a></div></div></div>
     </div>
   </div>
 </div>
+
 <footer class="footer-wrapper footer-default footer-overlay">
   <div class="footer-top">
     <div class="container">

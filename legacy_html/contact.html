@@ -412,7 +412,6 @@
     </div>
   </div>
 </header>
-
 <div class="breadcumb-wrapper position-relative" data-bg-src="assets/img/shape/breadcrumb-shep.png">
   <div class="breadcumb-banner"><img src="assets/img/breadcrumb/breadcumb-banner.png" alt="University of Karachi main entrance gate" loading="eager" fetchpriority="high" decoding="async"></div>
   <div class="breadcumb-shape"><img src="assets/img/shape/triangle-light.png" alt="shape" class="jump" loading="lazy" decoding="async"></div>
@@ -523,7 +522,7 @@
     <div class="row gx-0 gy-40">
       <div class="col-lg-6">
         <div class="contact-form-v1">
-          <form action="#" method="POST" class="contact-form2 ajax-contact">
+          <form action="#" method="POST" class="contact-form2" id="uok-contact-form">
             <div class="title-area mb-60">
               <span class="sub-title">GET IN TOUCH</span>
               <h2 class="sec-title">Do you have questions?</h2>
@@ -551,10 +550,10 @@
                 <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Write your message*"></textarea>
               </div>
               <div class="form-btn col-12 mt-15">
-                <button class="th-btn">Send Message</button>
+                <button type="submit" class="th-btn" id="uok-contact-submit"><span>Send Message</span><i class="fa-solid fa-paper-plane"></i></button>
               </div>
             </div>
-            <p class="form-messages mb-0 mt-3"></p>
+            <p class="form-messages mb-0 mt-3" id="uok-contact-form-message"></p>
           </form>
         </div>
       </div>

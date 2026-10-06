@@ -411,9 +411,7 @@
     </div>
   </div>
 </header>
-
-
-<div class="breadcumb-wrapper position-relative" data-bg-src="assets/img/shape/breadcrumb-shep.png">
+<div class="breadcumb-wrapper position-relative background-image" style="background-image: url(&quot;assets/img/shape/breadcrumb-shep.png&quot;);">
   <div class="breadcumb-banner"><img src="assets/img/breadcrumb/breadcumb-banner.png" alt="University of Karachi main entrance gate" loading="eager" fetchpriority="high" decoding="async"></div>
   <div class="breadcumb-shape"><img src="assets/img/shape/triangle-light.png" alt="shape" class="jump" loading="lazy" decoding="async"></div>
   <div class="container th-container4">
@@ -427,7 +425,7 @@
     </div>
   </div>
 </div>
-<section class="th-program-wrapper program-details space-top space-extra2-bottom overflow-hidden">
+<section class="th-program-wrapper program-details space-top space-extra2-bottom overflow-hidden shape-mockup-wrap">
   <div class="container th-container4">
     <div class="row gy-4 gx-60">
       <div class="col-xl-8">
@@ -440,12 +438,17 @@
           <div class="program-wrapp">
             <div class="discount-wrapp">
               <div class="logo"><img src="assets/img/circle-logo2.svg" alt="img" loading="lazy" decoding="async"></div>
-              <div class="discount-tag"><span class="discount-anime">* ESTABLISHED EARLY * Faculty of Science</span></div>
+              <div class="discount-tag"><span class="discount-anime"><span class="char1">*</span><span class="char2"> </span><span class="char3">E</span><span class="char4">S</span><span class="char5">T</span><span class="char6">A</span><span class="char7">B</span><span class="char8">L</span><span class="char9">I</span><span class="char10">S</span><span class="char11">H</span><span class="char12">E</span><span class="char13">D</span><span class="char14"> </span><span class="char15">E</span><span class="char16">A</span><span class="char17">R</span><span class="char18">L</span><span class="char19">Y</span><span class="char20"> </span><span class="char21">*</span><span class="char22"> </span><span class="char23">F</span><span class="char24">a</span><span class="char25">c</span><span class="char26">u</span><span class="char27">l</span><span class="char28">t</span><span class="char29">y</span><span class="char30"> </span><span class="char31">o</span><span class="char32">f</span><span class="char33"> </span><span class="char34">S</span><span class="char35">c</span><span class="char36">i</span><span class="char37">e</span><span class="char38">n</span><span class="char39">c</span><span class="char40">e</span></span></div>
             </div>
           </div>
           <div class="row gx-30 mt-30">
-            <div class="col-md-6 mb-30"><div class="global-img"><img class="w-100" src="assets/img/uok/banner-chem.jpg" alt="University of Karachi" loading="lazy" decoding="async"></div></div>
-            <div class="col-md-6 mb-30"><div class="global-img"><img class="w-100" src="assets/img/uok/hero-chem.jpg" alt="University of Karachi" loading="lazy" decoding="async"></div></div>
+            <div class="col-md-8 mx-auto mb-30">
+              <div class="global-img photo-placeholder-box" style="aspect-ratio:1/1;max-width:420px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#e6f4ea,#f4f8f5);border:2px dashed #7c0405;border-radius:12px;text-align:center;padding:24px;">
+                <i class="fa-solid fa-camera" style="font-size:34px;color:#7c0405;opacity:0.55;margin-bottom:14px;"></i>
+                <span style="font-weight:700;color:#1a3a2a;font-size:16px;line-height:1.3;">Department of Chemistry</span>
+                <span style="font-size:12px;color:#6c757d;margin-top:6px;text-transform:uppercase;letter-spacing:0.5px;">Photo Coming Soon</span>
+              </div>
+            </div>
           </div>
           <div class="program-content">
             <div class="program-grid">
@@ -466,7 +469,7 @@
           <p class="mt-50">Chemistry is a central science that helps in understanding the origin of life and offers ways to use non-living things for the comfort of life. Chemical orientation cannot be imparted in isolation — it is developed through a combination of physics and biology on one hand, and engineering and applied sciences on the other.</p>
 
           <span class="text-title">Careers</span><h4 class="h4">Career Opportunities</h4><p>A degree in chemistry opens a wide choice of employment opportunities, especially in the textile and pharmaceutical industry, clinical laboratories, oil refineries, chemical industry, paint industry, cement industry, beverages and food product industry, analytical and instrumental services agencies, and the polymer industry.</p>
-          <div class="mt-40"><a href="https://uokadmission.edu.pk/login" target="_blank" rel="noopener noreferrer" class="th-btn th-icon">Apply via Admissions</a></div>
+          <div class="mt-40"><a href="/admissions" class="th-btn th-icon">Apply via Admissions</a></div>
         </div>
       </div>
       <div class="col-xl-4">
@@ -495,7 +498,7 @@
       </div>
     </div>
   </div>
-  <div class="shape-mockup jump d-none d-xxl-block" data-bottom="0%" data-right="0%"><img src="assets/img/shape/faq-2-1.png" alt="University of Karachi" loading="lazy" decoding="async"></div>
+  <div class="shape-mockup jump d-none d-xxl-block" style="right: 0%; bottom: 0%;"><img src="assets/img/shape/faq-2-1.png" alt="University of Karachi" loading="lazy" decoding="async"></div>
 </section>
 
 <section class="th-program-wrapper space-top space-extra2-bottom overflow-hidden" id="department-details">
@@ -514,10 +517,10 @@
             <div class="dept-nav-body p-2 bg-white">
               <div class="nav flex-column nav-pills dept-nav-pills" id="dept-tabs" role="tablist" aria-orientation="vertical">
 
-      <button class="nav-link active" id="tab-introduction-btn" data-bs-toggle="pill" data-bs-target="#tab-introduction" type="button" role="tab" aria-controls="tab-introduction" aria-selected="true">
+      <button class="nav-link" id="tab-introduction-btn" data-bs-toggle="pill" data-bs-target="#tab-introduction" type="button" role="tab" aria-controls="tab-introduction" aria-selected="false">
         <i class="fa-solid fa-circle-info"></i> <span>Introduction</span>
       </button>
-      <button class="nav-link" id="tab-faculty-btn" data-bs-toggle="pill" data-bs-target="#tab-faculty" type="button" role="tab" aria-controls="tab-faculty" aria-selected="false">
+      <button class="nav-link active" id="tab-faculty-btn" data-bs-toggle="pill" data-bs-target="#tab-faculty" type="button" role="tab" aria-controls="tab-faculty" aria-selected="true">
         <i class="fa-solid fa-chalkboard-user"></i> <span>Faculty</span>
       </button>
       <button class="nav-link" id="tab-programs-btn" data-bs-toggle="pill" data-bs-target="#tab-programs" type="button" role="tab" aria-controls="tab-programs" aria-selected="false">
@@ -555,88 +558,86 @@
       <div class="col-xl-9 col-lg-8">
         <div class="tab-content dept-tab-content bg-white p-4 p-md-5 rounded-4 shadow-sm border" id="dept-tabContent">
 
-      <div class="tab-pane fade show active" id="tab-introduction" role="tabpanel" aria-labelledby="tab-introduction-btn">
+      <div class="tab-pane fade" id="tab-introduction" role="tabpanel" aria-labelledby="tab-introduction-btn">
         <div class="dept-pane-header">
-          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Overview & History</span>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Overview &amp; History</span>
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Introduction</h2>
         </div>
         <div class="dept-pane-body content-typography">
           <div class="table-responsive my-3"><table class="table table-bordered table-striped table-hover align-middle">
-    <tr>
+    <tbody><tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td><div> &nbsp;</div></td>
     </tr>
-  </table></div>
+  </tbody></table></div>
   <h4 class="dept-subheading fs-5 text-dark fw-bold mt-4 mb-3">Chairperson:   <strong>Prof. Dr. Nasreen Fatima</strong></h4>
   <p>Chemistry  is a central science which helps in understanding the origin of life and  suggest ways to use non-living things for giving comfort to life. Chemical  orientation cannot be imparted in isolation and has to be developed through a  cocktail of physics and biology on one hand and engineering and applied  sciences on the other. The Department of Chemistry, University of Karachi is  well equipped for pursuing this goal having skilled and proficient faculty,  well equipped laboratories and other infrastructure. This department is one of  the oldest departments of University of Karachi. </p>
   
   <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">Teaching and assessment</h5>
-<p>Teaching is done while following the semester system. An academic year  is divided into two semesters of approximately 16 weeks duration. Assessment  includes midterm/ makeup, terminal  and  lab / Assignment. </p>
+<p>Teaching is done while following the semester system. An academic year  is divided into two semesters of approximately 16 weeks duration. Assessment  includes midterm/ makeup, terminal&nbsp; and  lab / Assignment. </p>
 
 <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">Career  Opportunities</h5>
   <p>A person  with a degree in chemistry has a wide choice of employment opportunities  especially in the textile &amp;Pharmaceutical Industry, Clinical laboratories, Oil refineries Chemical industry, Paint  industry, Cement industry, Beverages &amp; Food product industry, Analytical &amp;instrumental services,  agencies and Polymer industry. </p>
-<h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">&nbsp;</h5>
+
         </div>
       </div>
-      <div class="tab-pane fade" id="tab-faculty" role="tabpanel" aria-labelledby="tab-faculty-btn">
+      <div class="tab-pane fade active show" id="tab-faculty" role="tabpanel" aria-labelledby="tab-faculty-btn">
         <div class="dept-pane-header">
-          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Academic Staff & Researchers</span>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Academic Staff &amp; Researchers</span>
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Faculty</h2>
         </div>
         <div class="dept-pane-body content-typography">
-          <h4 class="dept-subheading fs-5 text-dark fw-bold mt-4 mb-3">&nbsp;</h4>
+          
   <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2"><strong>Professors</strong></h5>
   <p>
-  	Dr. Hajira Tahir<br />
-	Dr. Rehana Saeed (<a href="/faculties/chemistry/rs.pdf" target="_blank">Profile</a>)  <br />
-	Dr. M. Nasir Uddin Khan<br />
-	Dr. Nasreen Fatima<br />
-	Dr. Uzma Ashiq<br />
-	Dr. Sheikh Mohiuddin<br />
-	Dr. Erum Zahir<br />
-    Dr. Firdous<br />
-    Dr. Itrat Anis<br />
-    Dr. Imran Ali Hashmi<br />
+  	Dr. Hajira Tahir<br>
+	Dr. Rehana Saeed (<a href="/faculties/chemistry/rs.pdf" target="_blank">Profile</a>)  <br>
+	Dr. M. Nasir Uddin Khan<br>
+	Dr. Nasreen Fatima<br>
+	Dr. Uzma Ashiq<br>
+	Dr. Sheikh Mohiuddin<br>
+	Dr. Erum Zahir<br>
+    Dr. Firdous<br>
+    Dr. Itrat Anis<br>
+    Dr. Imran Ali Hashmi<br>
 	</p>
   
   <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2"><strong>Associate Professors</strong> </h5>
-  <p>    
-	Dr. Sumayya Saied (FSL)<br />
-	Dr. Rifat Ara Jamal<br />
-	Dr. Shazia Nisar<br />
-	Dr. Raheela Naz<br />
-	Dr. Zahid Hussain<br />
-	Dr. Syed Tariq Ali<br />
-	Dr. Syed Kashif Ali<br />
-    Dr. Agha Arslan Wasim<br />
-    Dr. Mohsin Ali<br />
-    Dr. Saba<br />
-    Dr. Summyia Masood<br />
-    Dr. Tehseen Ahmed (<a href="/faculties/chemistry/ta.pdf" target="_blank">Profile</a>)<br />
+  <p>Dr. Rifat Ara Jamal<br>
+	Dr. Shazia Nisar<br>
+	Dr. Raheela Naz<br>
+	Dr. Zahid Hussain<br>
+	Dr. Syed Tariq Ali<br>
+	Dr. Syed Kashif Ali<br>
+    Dr. Agha Arslan Wasim<br>
+    Dr. Mohsin Ali<br>
+    Dr. Saba<br>
+    Dr. Summyia Masood<br>
+    Dr. Tehseen Ahmed (<a href="/faculties/chemistry/ta.pdf" target="_blank">Profile</a>)<br>
 
   </p>
 
   <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2"><strong>Assistant Professors</strong> </h5>
   <p>   
 
-Dr. Muti-ur-Rahman<br />
-Dr. Humaira Bano<br />
-Dr. Naushaba Zafar<br />
-Dr. Syed Nawazish Ali (S.L)<br />
-Dr. Qurat-ul-Ain<br />
-Dr. Hamida Sultan Muhammad <br />
-Dr. M. Asad Khan Tanoli<br />
-Dr. Perveen Fazil<br />
-Dr. Nizam Uddin<br />
-Dr. Syed Muhammad Saad<br />
-Dr. Maria Ashfaq Lodhi<br />
-Dr. Noshab Qamar<br />
-Dr. Sadaf Iqbal<br />
-Dr. Nida Ali<br />
-Dr. Fakhrun Nisa<br />
-Dr. Muhammad Balal <a href="/faculties/chemistry/dmb.pdf" target="_blank"><strong> (CV) </strong></a><br />
-Dr. Muhammad Saad<br />
+Dr. Muti-ur-Rahman<br>
+Dr. Humaira Bano<br>
+Dr. Naushaba Zafar<br>
+Dr. Syed Nawazish Ali (S.L)<br>
+Dr. Qurat-ul-Ain<br>
+Dr. Hamida Sultan Muhammad <br>
+Dr. M. Asad Khan Tanoli<br>
+Dr. Perveen Fazil<br>
+Dr. Nizam Uddin<br>
+Dr. Syed Muhammad Saad<br>
+Dr. Maria Ashfaq Lodhi<br>
+Dr. Noshab Qamar<br>
+Dr. Sadaf Iqbal<br>
+Dr. Nida Ali<br>
+Dr. Fakhrun Nisa<br>
+Dr. Muhammad Balal <a href="/faculties/chemistry/dmb.pdf" target="_blank"><strong> (CV) </strong></a><br>
+Dr. Muhammad Saad<br>
 </p>
         </div>
       </div>
@@ -652,17 +653,17 @@ Dr. Muhammad Saad<br />
     <li>Masters(Morning &amp;  Evening)</li>
     <li>MS/Ph.D</li>
 </ul>
-  <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">&nbsp;</h5>
+  
   <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">Eligibility &amp; Allocated seats </h5>
-  <p><br />
+  <p><br>
     <em><u>BS &amp; Honors:</u></em></p>
   <ul>
     <li>Intermediate  Science - <strong>120 seats</strong></li>
     <li>DAE - <strong>05 seats</strong></li>
   </ul>
-  <p><em><u>Masters:</u></em> </p>
+  <p><em><u>Masters:</u></em>&nbsp;</p>
   <ul>
- <li>  B.Sc. (with Chemistry  Pre-Engg) - <strong>30 seats</strong>                   </li>
+ <li>  B.Sc. (with Chemistry &nbsp;Pre-Engg) - <strong>30 seats</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
 <li> Pre-Medical/Geography/Geology - <strong>70 seats</strong></li>
 </ul>
         </div>
@@ -673,21 +674,21 @@ Dr. Muhammad Saad<br />
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Research</h2>
         </div>
         <div class="dept-pane-body content-typography">
-          <h4 class="dept-subheading fs-5 text-dark fw-bold mt-4 mb-3">&nbsp;</h4>
+          
   <p>In recent years many candidates of this department have completed M.Phil and Ph.D and most of them are now working in renowned and esteemed institutions and industries in all over the world. Every year the researchers of the department publish many research papers and books. Most of our faculty members hold Ph.D degrees. Many of our teachers and students have presented their research in international conferences/ seminars and most of them are pursuing vigorous research programs within the limited resources.</p>
   <p>The department has awarded thousands of B.Sc. (Hons.) and M.Sc degrees. Besides these, over hundred research scholars have completed their M.Phil and Ph.D degrees. Furthermore, Department of Chemistry is also supervising B.Sc. (Pass) degree program at many different colleges in the city, which are affiliated with University of Karachi.</p>
-<h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">&nbsp;</h5>
+
         </div>
       </div>
       <div class="tab-pane fade" id="tab-facilities" role="tabpanel" aria-labelledby="tab-facilities-btn">
         <div class="dept-pane-header">
-          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Infrastructure & Laboratories</span>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill fw-semibold mb-2" style="font-size:0.75rem;letter-spacing:0.5px;">Infrastructure &amp; Laboratories</span>
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Facilities</h2>
         </div>
         <div class="dept-pane-body content-typography">
-          <h4 class="dept-subheading fs-5 text-dark fw-bold mt-4 mb-3">&nbsp;</h4>
+          
   <p>The seminar library  has a stock of about 10,000 books and research journals on various fields of  chemistry. The Department of  Chemistry is equipped with many modern instruments for training of students for  challenging careers and research. These include, pH/Ion meters, conductometers,  polarimeters, refractometers, potentio-meters, electrochemical analyzers, HPLC,  atomic absorption spectrometers, UV-Visible  spectrophotometers, FTIR Spectrometers, Guoy Balance for magnetic  susceptibility measurements, flame photometers, computers, deionizers,  analytical balances, ovens, furnaces, centrifuges as well as a substantial  stock of glassware and chemicals. A modern instrument laboratory has been  furnished to house the new atomic absorption spectrometer, HPLC, GC, GC-MS  nuclear magnetic resonance spectrometer as well as some other modern  instruments. The department of chemistry has internet facility in almost every  room/lab class rooms. </p>
-<h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">&nbsp;</h5>
+
         </div>
       </div>
       <div class="tab-pane fade" id="tab-contact" role="tabpanel" aria-labelledby="tab-contact-btn">
@@ -696,15 +697,15 @@ Dr. Muhammad Saad<br />
           <h2 class="fw-bold text-dark mt-2 mb-0 fs-3">Contact</h2>
         </div>
         <div class="dept-pane-body content-typography">
-          <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">&nbsp;</h5>
+          
   <h5 class="dept-subheading fs-6 text-dark fw-bold mt-3 mb-2">For further information please contact:</h5>
-  <p><br />
+  <p><br>
     <strong>DEPARTMENT OF CHEMISTRY</strong></p>
   <p>    UNIVERSITY OF KARACHI, KARACHI - 75270</p>
   <p>    Telephone: 99261300-06 Ext: 2290</p>
-  <p>Email: chemistry@uok.edu.pk<br />
+  <p>Email: chemistry@uok.edu.pk<br>
   </p>
-  <br />
+  <br>
         </div>
       </div>
         </div>
@@ -758,27 +759,28 @@ Dr. Muhammad Saad<br />
           </div>
         </div>
         <div class="apply-stadum-action th-btn-wrap wow fadeInUp" data-wow-delay=".10s">
-          <a href="https://uokadmission.edu.pk/login" target="_blank" rel="noopener noreferrer" class="th-btn th-icon white-hover">Go to Admissions</a>
+          <a href="/admissions" class="th-btn th-icon white-hover">Go to Admissions</a>
         </div>
       </div>
     </div>
   </div>
   <span class="apply-stadum-shape wow fadeInRight" data-wow-delay=".3s"></span>
 </section>
-<div class="marquee-area space overflow-hidden overflow-hidden">
+<div class="marquee-area space overflow-hidden">
   <div class="container-fluid p-0">
-    <div class="swiper th-slider marquee-slider1" data-slider-options='{"breakpoints":{"0":{"slidesPerView":"auto"}},"autoplay":{"delay":0,"disableOnInteraction":false},"noSwiping":"true","speed":10000,"spaceBetween":40}'>
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">EXCELLENCE</a></div></div>
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/scollarship.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">RESEARCH</a></div></div>
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">INNOVATION</a></div></div>
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">KNOWLEDGE</a></div></div>
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/scollarship.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">DISCOVERY</a></div></div>
-        <div class="swiper-slide"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">EXCELLENCE</a></div></div>
+    <div class="swiper th-slider marquee-slider1" data-slider-options="{&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:&quot;auto&quot;}},&quot;autoplay&quot;:{&quot;delay&quot;:0,&quot;disableOnInteraction&quot;:false},&quot;noSwiping&quot;:&quot;true&quot;,&quot;speed&quot;:10000,&quot;spaceBetween&quot;:40}">
+      <div class="swiper-wrapper" id="swiper-wrapper-7005e65d0c8e5eec" aria-live="off">
+        <div class="swiper-slide" role="group" aria-label="1 / 6" data-swiper-slide-index="0" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">EXCELLENCE</a></div></div>
+        <div class="swiper-slide" role="group" aria-label="2 / 6" data-swiper-slide-index="1" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/scollarship.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">RESEARCH</a></div></div>
+        <div class="swiper-slide" role="group" aria-label="3 / 6" data-swiper-slide-index="2" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">INNOVATION</a></div></div>
+        <div class="swiper-slide" role="group" aria-label="4 / 6" data-swiper-slide-index="3" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">KNOWLEDGE</a></div></div>
+        <div class="swiper-slide" role="group" aria-label="5 / 6" data-swiper-slide-index="4" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/scollarship.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">DISCOVERY</a></div></div>
+        <div class="swiper-slide" role="group" aria-label="6 / 6" data-swiper-slide-index="5" style="margin-right: 40px;"><div class="marquee-card"><div class="color-masking"><img src="assets/img/icon/open-book.svg" alt="icon" loading="lazy" decoding="async"></div><a target="_blank" href="#">EXCELLENCE</a></div></div>
       </div>
     </div>
   </div>
 </div>
+
 <footer class="footer-wrapper footer-default footer-overlay">
   <div class="footer-top">
     <div class="container">

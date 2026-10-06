@@ -1,0 +1,1989 @@
+/* Custom CSS for layout fixes */
+
+/* ==========================================================================
+   BRAND COLOR OVERRIDE — --theme-color drives every sub-title, accent
+   button, and icon on the site. It shipped as the base template's pink/red
+   default (#D3224D); a prior pass swapped it to a generic green (#006633)
+   to match the admin panel, but that still wasn't the university's real
+   identity color. Sampled directly from the official crest
+   (public/assets/img/logo.png — the crescent/star/boat seal), which is
+   solid maroon, not green. Overriding it here cascades the correct color
+   through all of those elements at once instead of hunting down each
+   usage individually.
+   ========================================================================== */
+:root {
+    --theme-color: #7c0405;
+}
+
+/* ==========================================================================
+   BOOTSTRAP/TAILWIND `.collapse` CLASS COLLISION — Tailwind ships a utility
+   class also named `.collapse` (`visibility: collapse`, meant for hiding
+   table rows) inside its `@layer utilities` block. Per the CSS cascade-layer
+   spec, ANY unlayered rule beats a layered one on properties the unlayered
+   side doesn't even touch, so nothing here was overriding Tailwind's
+   `visibility: collapse` — it silently applied to every Bootstrap
+   `.collapse` component (accordions, expandable panels) used across this
+   template. Bootstrap's `display:none/block` toggle still worked, so an
+   opened accordion panel took up the right height but its text (which
+   inherits `visibility`) stayed invisible — it looked like the content
+   "opened" then vanished. This plain (unlayered) rule always wins over
+   Tailwind's layered one and restores normal visibility once expanded.
+   ========================================================================== */
+.collapse.show {
+    visibility: visible;
+}
+
+/* ==========================================================================
+   MOBILE HERO SLIDER — "75 YEARS DIAMOND JUBILEE" SEAL CUT OFF AT THE
+   BOTTOM EDGE. The base theme's `.hero-style1{padding:150px 0 0px 0}`
+   override at <=575px removes ALL bottom padding on phones (it was tuned
+   for the original template, which ended with the button row). This
+   project added the seal card as one more block after the buttons, so it
+   now sits completely flush against the bottom padding edge with zero
+   breathing room. `.th-hero-wrapper{overflow:hidden}` (required to contain
+   the fading slides) then hard-clips the seal card's box-shadow glow right
+   at that edge, reading as the banner being cropped/cut off. Padding (not
+   margin — margin here collapses through into the swiper's own height
+   calculation and gets swallowed) on the wrapping text block guarantees
+   real reserved space regardless of what the theme's own padding does at
+   any given breakpoint.
+   ========================================================================== */
+.hero-text-wrap {
+    padding-bottom: 32px;
+}
+
+.professor-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.professor-card .professor-img {
+    height: 380px;
+    width: 100%;
+    overflow: hidden;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* !important needed to beat the site-wide ".global-img img { object-fit:
+   cover !important }" rule below — that rule is right for landscape
+   building photos, but cropping a person's headshot to fill a fixed box
+   cuts off faces/heads. "contain" always shows the complete photo. */
+.professor-card .professor-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center !important;
+}
+.professor-card .professor-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.professor-card .professor-content .box-title {
+    min-height: 56px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Standardize image sizes on About and Department pages */
+.global-img img,
+.img-box4 .img1 img,
+.img-box4 .img2 img {
+    height: 350px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Campus facilities slider, milestone/history cards and the alumni photo
+   collage (all used on /about, plus the campus slider and blog-grid cards
+   reused on Home/Admissions/Student Life) ship from the theme with NO fixed
+   height on their images at all — each `<img>` just renders at its own
+   natural aspect ratio, so a row of six different source photos comes out
+   as six different heights/widths instead of a tidy grid. Give each of
+   these a fixed box + object-fit: cover, the same pattern already used for
+   .global-img / .professor-img above. */
+.campus-card.style2 .box-thumb {
+    height: 220px;
+    overflow: hidden;
+}
+.campus-card.style2 .box-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.blog-grid .blog-img,
+.blog-grid.style2 .blog-img {
+    height: 260px !important;
+    overflow: hidden;
+}
+.blog-grid .blog-img img,
+.blog-grid.style2 .blog-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.alumni-img {
+    height: 160px;
+    overflow: hidden;
+}
+.alumni-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Leadership/instructor cards (.instr-card.style2 — used on Administration and
+   Alumni pages): the theme's default overlaps the name/title panel over the
+   bottom of the photo using an absolutely-positioned box-content. With real
+   names and long designations ("Dean, Faculty of Management & Admin.
+   Sciences") that panel grows tall enough to cover most of the portrait,
+   hiding faces entirely on narrower cards. Switch to a simple stacked layout
+   (photo, then caption below it in normal flow) so the photo is always fully
+   visible regardless of text length — matching the .professor-card pattern
+   already used elsewhere on the site. */
+.instr-card.style2 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(8, 25, 51, 0.06);
+}
+.instr-card.style2 .instr-img {
+    height: 300px;
+    overflow: hidden;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.instr-card.style2 .instr-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center !important;
+}
+.instr-card.style2 .box-content {
+    position: static;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 18px 16px 22px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    filter: none;
+    -webkit-filter: none;
+}
+.instr-card.style2 .box-content:before,
+.instr-card.style2 .box-content:after {
+    display: none;
+}
+.instr-card.style2:hover .box-title a,
+.instr-card.style2:hover .instr-desig {
+    color: inherit;
+}
+
+/* Faculty Card Revamp */
+.faculty-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+}
+.faculty-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+.faculty-card .global-img {
+    overflow: hidden;
+}
+.faculty-card .global-img img {
+    transition: transform 0.6s ease;
+}
+.faculty-card:hover .global-img img {
+    transform: scale(1.05);
+}
+.faculty-card-content {
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.faculty-card .box-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+}
+.faculty-card:hover .box-title {
+    color: var(--theme-color);
+}
+.faculty-card .box-text {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+.faculty-card .faculty-btn {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--theme-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 10px 24px;
+    border-radius: 50px;
+    border: 1px solid rgba(0,0,0,0.1);
+    width: max-content;
+}
+.faculty-card .faculty-btn:hover {
+    background: var(--theme-color);
+    color: #ffffff;
+    border-color: var(--theme-color);
+}
+.faculty-card .faculty-btn i {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+.faculty-card .faculty-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* Permanent legibility scrim behind research-institute card titles (was hover-only, unreadable on light photos) */
+.story-card .box-img {
+    position: relative;
+}
+.story-card .box-img::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 70%;
+    background: linear-gradient(to top, rgba(3, 6, 14, 0.85), rgba(3, 6, 14, 0) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+.story-card .story-content {
+    z-index: 2;
+}
+
+/* Footer: plain brand-navy background, no photo */
+.footer-wrapper.footer-overlay {
+    background-image: none !important;
+    background-color: var(--black-color);
+}
+.footer-wrapper.footer-overlay::before {
+    display: none;
+}
+
+/* ==========================================================================
+   UNIVERSITY OF KARACHI & DIAMOND JUBILEE HEADER BRANDING (SINGLE-ROW PRECISION)
+   ========================================================================== */
+
+/* Header container width: utilize full comfortable width on desktop so elements never wrap */
+.th-header .th-container2,
+.th-header .th-container4 {
+    max-width: 96% !important;
+    width: 96% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+@media (min-width: 1600px) {
+    .th-header .th-container2,
+    .th-header .th-container4 {
+        max-width: 1580px !important;
+        width: 100% !important;
+    }
+}
+
+/* --- 0. Top Utility Bar (header-top) Single-Row Precision --- */
+.header-top {
+    padding: 6px 0 !important;
+    background: #081933 !important;
+}
+
+.header-top .row {
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.header-top .header-links {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+.header-top .header-left-wrap {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-bottom: 0 !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+    flex-wrap: nowrap !important;
+}
+
+.header-top .header-left-wrap li {
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.header-top .header-left-wrap a {
+    font-size: 12.5px !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    white-space: nowrap !important;
+}
+
+.header-top .header-right-wrap {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin-bottom: 0 !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+    flex-wrap: nowrap !important;
+}
+
+.header-top .header-right-wrap li {
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    font-size: 12.5px !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    white-space: nowrap !important;
+}
+
+.header-top .header-right-wrap li a {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 12.5px !important;
+}
+
+.jubilee-top-badge {
+    font-size: 11.5px !important;
+    padding: 3px 10px !important;
+    white-space: nowrap !important;
+}
+
+/* --- 1. Main Website Header Lockup (header-info) --- */
+.header-info {
+    padding: 8px 0;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(8, 25, 51, 0.06);
+}
+
+.header-info .row {
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.uok-brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 4px 0;
+    flex-wrap: nowrap;
+}
+
+.uok-crest-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.uok-crest-img,
+img.uok-crest-img {
+    height: 74px !important;
+    max-height: 74px !important;
+    width: auto !important;
+    max-width: 78px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+    filter: drop-shadow(0 3px 8px rgba(8, 25, 51, 0.18));
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.3s ease;
+}
+
+.uok-brand-lockup:hover .uok-crest-img {
+    transform: translateY(-2px) scale(1.04);
+    filter: drop-shadow(0 6px 14px rgba(8, 25, 51, 0.26));
+}
+
+.uok-brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.uok-brand-title {
+    font-family: var(--title-font), "Playfair Display", "Georgia", serif;
+    font-size: 23px;
+    font-weight: 800;
+    color: #081933;
+    letter-spacing: 1.1px;
+    line-height: 1.15;
+    margin: 0 0 3px 0;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.uok-brand-lockup:hover .uok-brand-title {
+    color: var(--theme-color, #D3224D);
+}
+
+.uok-brand-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    line-height: 1;
+}
+
+.uok-brand-urdu {
+    font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Traditional Arabic', 'Scheherazade', serif;
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #D3224D;
+    letter-spacing: 0;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.uok-brand-sep {
+    color: #D4AF37;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.uok-brand-tag {
+    font-family: var(--body-font), "Plus Jakarta Sans", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    color: #4a5c6e;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.uok-brand-divider {
+    width: 1.5px;
+    height: 48px;
+    background: linear-gradient(180deg, rgba(212, 175, 55, 0.15) 0%, #D4AF37 50%, rgba(212, 175, 55, 0.15) 100%);
+    margin: 0 4px;
+    flex-shrink: 0;
+    border-radius: 2px;
+}
+
+.uok-jubilee-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(211, 34, 77, 0.05) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    padding: 4px 12px 4px 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.uok-brand-lockup:hover .uok-jubilee-wrap {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.14) 0%, rgba(211, 34, 77, 0.09) 100%);
+    border-color: rgba(212, 175, 55, 0.55);
+    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.22);
+}
+
+.uok-jubilee-img,
+img.uok-jubilee-img {
+    height: 74px !important;
+    max-height: 74px !important;
+    width: auto !important;
+    max-width: 78px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+    filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.38));
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.3s ease;
+}
+
+.uok-brand-lockup:hover .uok-jubilee-img {
+    transform: translateY(-2px) scale(1.04);
+    filter: drop-shadow(0 6px 16px rgba(212, 175, 55, 0.55));
+}
+
+.uok-jubilee-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.uok-jubilee-title {
+    font-family: var(--title-font), "Playfair Display", serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: #D3224D;
+    letter-spacing: 1.4px;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.uok-jubilee-years {
+    font-family: var(--body-font), "Plus Jakarta Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    color: #081933;
+    letter-spacing: 0.6px;
+}
+
+/* Header Contact Info on Right - compact & single-row */
+.header-info-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+}
+
+.header-info-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin: 0 !important;
+}
+
+.header-info-icon {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    line-height: 38px !important;
+    text-align: center !important;
+    font-size: 15px !important;
+    color: var(--theme-color) !important;
+    background: #FFF6F8 !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.header-info-content {
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: left !important;
+}
+
+.header-info-text {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: #6c7d8f !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1 !important;
+    margin-bottom: 2px !important;
+}
+
+.header-info-title,
+.header-info-title a {
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    color: #081933 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+}
+
+.header-info-title a:hover {
+    color: var(--theme-color) !important;
+}
+
+/* Header Scholarships Button (Option 2 style) */
+.header-scholarships-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    background: #081933 !important;
+    color: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    padding: 8px 18px !important;
+    border-radius: 9999px !important;
+    text-decoration: none !important;
+    box-shadow: 0 2px 6px rgba(8, 25, 51, 0.35) !important;
+    transition: all 0.25s ease-in-out !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    cursor: pointer !important;
+    border: none !important;
+}
+
+.header-scholarships-btn:hover {
+    background: #123a6b !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(8, 25, 51, 0.45) !important;
+}
+
+.header-scholarships-btn:active {
+    transform: translateY(0) !important;
+}
+
+.header-scholarships-btn i {
+    font-size: 14px !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+}
+
+/* Header Info Divider next to Search */
+.header-info-sep {
+    width: 1px !important;
+    height: 24px !important;
+    background: #dce3eb !important;
+    margin: 0 2px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Header Search Icon Button */
+.header-search-icon-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 6px 8px !important;
+    color: #081933 !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+    flex-shrink: 0 !important;
+}
+
+.header-search-icon-btn:hover {
+    color: var(--theme-color) !important;
+    transform: scale(1.1) !important;
+}
+
+/* Mobile Drawer Scholarships Button */
+.mobile-scholarship-wrap {
+    margin: 14px auto 12px !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.mobile-scholarship-wrap .header-scholarships-btn {
+    padding: 9px 22px !important;
+    font-size: 13.5px !important;
+}
+
+/* --- 2. Main Navigation Bar (menu-area) --- */
+.menu-wrapp .row {
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.header-left {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+}
+
+.menu-area .header-button .th-btn {
+    padding: 13px 18px !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.3px !important;
+}
+
+.main-menu {
+    margin-left: 16px !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    width: 100% !important;
+}
+
+.main-menu > ul {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+    gap: 4px !important;
+}
+
+.main-menu > ul > li {
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 1 auto !important;
+}
+
+.main-menu > ul > li > a {
+    padding: 20px 6px !important;
+    font-size: 17.5px !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: var(--title-color) !important;
+    letter-spacing: 0.2px !important;
+    transition: color 0.2s ease;
+}
+
+.main-menu > ul > li > a:hover {
+    color: #c9002b !important;
+}
+
+.main-menu > ul > li.menu-item-has-children > a::after {
+    font-size: 11px !important;
+    margin-left: 5px !important;
+}
+
+/* Right side actions (Login, Search, Grid icon) */
+.col-auto.ms-lg-auto {
+    flex-shrink: 0 !important;
+}
+
+.col-auto.ms-lg-auto .header-button {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+}
+
+.login-header-btn {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    gap: 6px !important;
+    border-radius: 6px !important;
+}
+
+.search-form {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.search-form input {
+    width: 140px !important;
+    height: 38px !important;
+    font-size: 12.5px !important;
+    padding: 0 32px 0 12px !important;
+    background: #f2f4f7 !important;
+    border: 1px solid #e1e4e8 !important;
+    border-radius: 6px !important;
+    color: #081933 !important;
+}
+
+.search-form button {
+    position: absolute !important;
+    right: 4px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: transparent !important;
+    border: none !important;
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 13px !important;
+    color: #6c7d8f !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.sideMenuToggler {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 6px !important;
+}
+
+/* --- 3. Sticky Header on Scroll Lockup (.sticky-wrapper.sticky) --- */
+.sticky-logo-wrap {
+    display: none;
+    align-items: center;
+    align-self: center;
+    margin-right: 14px;
+    padding-right: 14px;
+    border-right: 1.5px solid rgba(8, 25, 51, 0.12);
+    height: 46px;
+    max-height: 46px;
+    flex-shrink: 0;
+}
+
+.sticky-brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    vertical-align: middle;
+    height: 46px;
+    max-height: 46px;
+    padding: 2px 4px;
+    border-radius: 6px;
+}
+
+.sticky-crest-img,
+img.sticky-crest-img {
+    height: 42px !important;
+    max-height: 42px !important;
+    width: auto !important;
+    max-width: 46px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+    filter: drop-shadow(0 2px 5px rgba(8, 25, 51, 0.16));
+    transition: transform 0.25s ease, filter 0.25s ease;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.sticky-brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    line-height: 1.15;
+    flex-shrink: 0;
+}
+
+.sticky-brand-name {
+    font-family: var(--title-font), "Playfair Display", "Georgia", serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: #081933;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+    margin: 0;
+    line-height: 1.15;
+    transition: color 0.25s ease;
+}
+
+.sticky-brand-lockup:hover .sticky-brand-name {
+    color: var(--theme-color, #D3224D);
+}
+
+.sticky-brand-sub {
+    font-family: var(--body-font), "Plus Jakarta Sans", sans-serif;
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #D3224D;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    margin: 1px 0 0 0;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.sticky-jubilee-img,
+img.sticky-jubilee-img {
+    height: 42px !important;
+    max-height: 42px !important;
+    width: auto !important;
+    max-width: 46px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+    filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.38));
+    transition: transform 0.25s ease, filter 0.25s ease;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.sticky-brand-lockup:hover .sticky-crest-img,
+.sticky-brand-lockup:hover .sticky-jubilee-img {
+    transform: translateY(-1px) scale(1.05);
+    filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.55));
+}
+
+/* When header is sticky (scrolled), show sticky brand lockup and align navigation row */
+.sticky-wrapper.sticky {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999 !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 22px rgba(8, 25, 51, 0.08) !important;
+    animation: stickySlideDown 0.3s ease-out !important;
+}
+
+@keyframes stickySlideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.sticky-wrapper.sticky .menu-area {
+    padding: 4px 0 !important;
+    background: #ffffff !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+
+.sticky-wrapper.sticky .menu-wrapp {
+    background: transparent !important;
+}
+
+.sticky-wrapper.sticky .sticky-logo-wrap {
+    display: flex !important;
+}
+
+.sticky-wrapper.sticky .header-button {
+    display: none !important;
+}
+
+.sticky-wrapper.sticky .col-auto.ms-lg-auto .header-button {
+    display: flex !important;
+}
+
+.sticky-wrapper.sticky .header-left {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.sticky-wrapper.sticky .main-menu {
+    margin-left: 0 !important;
+}
+
+.sticky-wrapper.sticky .main-menu > ul {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+}
+
+.sticky-wrapper.sticky .main-menu > ul > li {
+    margin: 0 !important;
+}
+
+.sticky-wrapper.sticky .main-menu > ul > li > a {
+    padding: 14px 6px !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* --- 4. Responsive Breakpoints --- */
+
+/* Standard Desktop / 1200px - 1440px */
+@media (max-width: 1440px) and (min-width: 1200px) {
+    .uok-brand-title {
+        font-size: 21px;
+    }
+    .uok-brand-urdu {
+        font-size: 15px;
+    }
+    .uok-crest-img,
+    img.uok-crest-img,
+    .uok-jubilee-img,
+    img.uok-jubilee-img {
+        height: 68px !important;
+        max-height: 68px !important;
+        max-width: 72px !important;
+    }
+    .uok-brand-divider {
+        height: 44px;
+    }
+    .header-info-right {
+        gap: 12px !important;
+    }
+    .header-scholarships-btn {
+        padding: 7px 14px !important;
+        font-size: 12px !important;
+        gap: 6px !important;
+    }
+    .header-info-title,
+    .header-info-title a {
+        font-size: 12.5px !important;
+    }
+    .main-menu > ul > li {
+        margin: 0 !important;
+    }
+    .main-menu > ul > li > a {
+        font-size: 16px !important;
+        padding: 18px 4px !important;
+    }
+    .search-form input {
+        width: 120px !important;
+    }
+}
+
+/* Tablet / Laptop < 1200px: Hide big header-info, show compact header bar */
+@media (max-width: 1199px) {
+    .header-info {
+        display: none !important;
+    }
+    .sideMenuToggler {
+        display: none !important;
+    }
+    .sticky-logo-wrap {
+        display: flex !important;
+        border-right: none !important;
+        margin-right: 0 !important;
+        padding-right: 0 !important;
+        height: 44px;
+        max-height: 44px;
+    }
+    .sticky-crest-img,
+    img.sticky-crest-img,
+    .sticky-jubilee-img,
+    img.sticky-jubilee-img {
+        height: 38px !important;
+        max-height: 38px !important;
+        max-width: 42px !important;
+    }
+    .sticky-brand-name {
+        max-width: none !important;
+        font-size: 13.5px !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* Tablet < 992px */
+@media (max-width: 991px) {
+    .menu-area .search-form {
+        display: none !important;
+    }
+    .sideMenuToggler {
+        display: none !important;
+    }
+    .sticky-logo-wrap {
+        height: 42px;
+        max-height: 42px;
+        gap: 6px;
+    }
+    .sticky-crest-img,
+    img.sticky-crest-img,
+    .sticky-jubilee-img,
+    img.sticky-jubilee-img {
+        height: 36px !important;
+        max-height: 36px !important;
+        max-width: 40px !important;
+    }
+}
+
+/* Mobile Devices < 768px */
+@media (max-width: 767px) {
+    .menu-wrapp .row {
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+    }
+    .header-left {
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+    }
+    .sideMenuToggler {
+        display: none !important;
+    }
+    .sticky-logo-wrap {
+        min-width: 0 !important;
+        overflow: visible !important;
+        height: 42px !important;
+        max-height: 42px !important;
+        gap: 6px !important;
+    }
+    .sticky-brand-lockup {
+        min-width: 0 !important;
+        height: 42px !important;
+        max-height: 42px !important;
+        gap: 6px !important;
+    }
+    .sticky-crest-img,
+    img.sticky-crest-img,
+    .sticky-jubilee-img,
+    img.sticky-jubilee-img {
+        height: 34px !important;
+        max-height: 34px !important;
+        max-width: 38px !important;
+    }
+    .sticky-brand-text {
+        min-width: 0 !important;
+    }
+    .sticky-brand-name {
+        font-size: 13px !important;
+        max-width: none !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        white-space: nowrap !important;
+    }
+    .sticky-brand-sub {
+        font-size: 8.5px !important;
+        white-space: nowrap !important;
+    }
+    .col-auto.ms-lg-auto {
+        flex-shrink: 0 !important;
+    }
+    .col-auto.ms-lg-auto .header-button {
+        gap: 6px !important;
+    }
+    .login-header-btn {
+        padding: 6px 10px !important;
+        font-size: 12px !important;
+        gap: 4px !important;
+    }
+    .th-menu-toggle {
+        width: 36px !important;
+        height: 36px !important;
+        line-height: 36px !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* Extra Compact Phones < 576px */
+@media (max-width: 575px) {
+    .header-logo.d-block.d-sm-none {
+        display: none !important;
+    }
+    .sideMenuToggler {
+        display: none !important;
+    }
+    .sticky-logo-wrap {
+        display: flex !important;
+        border-right: none !important;
+        margin-right: 0 !important;
+        padding-right: 0 !important;
+        gap: 5px !important;
+        height: 38px !important;
+        max-height: 38px !important;
+    }
+    .sticky-brand-lockup {
+        gap: 5px !important;
+    }
+    .sticky-brand-sub {
+        display: none !important;
+    }
+    .sticky-brand-name {
+        max-width: none !important;
+        font-size: 12.5px !important;
+        line-height: 1.1 !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        white-space: nowrap !important;
+    }
+    .sticky-crest-img,
+    .sticky-jubilee-img,
+    img.sticky-crest-img,
+    img.sticky-jubilee-img {
+        height: 32px !important;
+        max-height: 32px !important;
+        max-width: 34px !important;
+    }
+    .login-header-btn {
+        padding: 6px 9px !important;
+        font-size: 11.5px !important;
+        gap: 3px !important;
+    }
+    .col-auto.ms-lg-auto .header-button {
+        gap: 5px !important;
+    }
+    .th-menu-toggle {
+        width: 34px !important;
+        height: 34px !important;
+        line-height: 34px !important;
+    }
+}
+
+/* Ultra small screens < 360px */
+@media (max-width: 359px) {
+    .sticky-jubilee-img,
+    img.sticky-jubilee-img {
+        display: none !important;
+    }
+    .sticky-brand-name {
+        font-size: 11.5px !important;
+    }
+}
+
+/* ==========================================================================
+   Homepage Feature Cards (Academics, Research, Admissions, Student Life)
+   Ensure all 4 boxes have strictly equal height, width, and aligned buttons.
+   ========================================================================== */
+.feature-sec-1 .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.feature-card_wrapp {
+    display: flex !important;
+    align-items: stretch !important;
+}
+
+.feature-card {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
+
+.feature-card .box-text {
+    flex-grow: 1 !important;
+    margin-bottom: 28px !important;
+}
+
+.feature-card .th-btn {
+    margin-top: auto !important;
+    align-self: flex-start !important;
+}
+
+/* Feature and counter icons: uniform bounding box so icons of differing
+   native aspect ratios (e.g. feature-icon1-4.svg is 63x48 vs 49x48 for the
+   other three) render at the same visual size instead of one looking
+   smaller than its row siblings. */
+.feature-card .box-icon img {
+    width: 49px !important;
+    height: 48px !important;
+    object-fit: contain !important;
+}
+
+.counter-card .box-icon {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.counter-card .box-icon img {
+    width: 65px !important;
+    height: 65px !important;
+    object-fit: contain !important;
+}
+
+/* Research/institute page service icons (service_card_1_1/2/3.svg) have no
+   sizing rule anywhere in the theme, so each renders at its own native
+   width (77/80/73px) side by side in the same row. Bound them uniformly. */
+.service-card .box-icon img {
+    width: 56px !important;
+    height: 56px !important;
+    object-fit: contain !important;
+}
+
+/* Department page content (legacy-migrated body text) embeds raw <img> tags
+   with no sizing at all -- both inside <td> table cells and, on a handful of
+   pages (e.g. Food Science, Pharmacology, Physiology), directly in the
+   paragraph flow. Unstyled, these render at full native resolution and
+   overflow their table cell / the page width. Constrain every image in the
+   legacy content area, not just the ones inside tables. */
+.dept-pane-body img,
+.content-typography img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* ==========================================================================
+   About Us Section: Feature Icons Alignment & Styling
+   Fixes the top-left uncentered icons so they are perfectly centered.
+   ========================================================================== */
+.about-feature {
+    display: flex !important;
+    align-items: center !important;
+    gap: 22px !important;
+}
+
+.about-feature .box-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 76px !important;
+    height: 76px !important;
+    min-width: 76px !important;
+    max-width: 76px !important;
+    flex-shrink: 0 !important;
+    border: 1.5px solid rgba(8, 25, 51, 0.12) !important;
+    border-radius: 12px !important;
+    background: #ffffff !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    box-shadow: 0 4px 15px rgba(8, 25, 51, 0.04) !important;
+    line-height: 1 !important;
+}
+
+.about-feature .box-icon::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background-color: var(--theme-color, #D3224D) !important;
+    border-radius: 12px !important;
+    transform: scale(0) !important;
+    transition: transform 0.35s ease !important;
+    z-index: 1 !important;
+}
+
+.about-feature:hover .box-icon {
+    border-color: var(--theme-color, #D3224D) !important;
+    box-shadow: 0 6px 20px rgba(211, 34, 77, 0.22) !important;
+}
+
+.about-feature:hover .box-icon::before {
+    transform: scale(1) !important;
+}
+
+.about-feature .box-icon img {
+    width: 36px !important;
+    height: 36px !important;
+    max-width: 36px !important;
+    max-height: 36px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    z-index: 2 !important;
+    transition: transform 0.3s ease, filter 0.3s ease !important;
+}
+
+.about-feature:hover .box-icon img {
+    transform: scale(1.08) !important;
+    filter: brightness(0) invert(1) !important;
+}
+
+/* ==========================================================================
+   About Us: University of Karachi Diamond Jubilee Badge Adjustment
+   Fixes the negative margin overhang so it gracefully overlaps the video.
+   ========================================================================== */
+.img-box1 {
+    position: relative !important;
+}
+
+.img-box1 .about-wrapp {
+    position: absolute !important;
+    left: -25px !important;
+    top: 80px !important;
+    z-index: 10 !important;
+}
+
+@media (max-width: 991px) {
+    .img-box1 .about-wrapp {
+        left: 16px !important;
+        top: 16px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    .img-box1 .about-wrapp {
+        position: relative !important;
+        left: 0 !important;
+        top: 0 !important;
+        margin: 20px auto 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+}
+
+/* Scoped to .img-box1 (the homepage About Us badge) — .discount-wrapp/.logo/
+   .discount-tag are also used unrelated on 59 department-*.html pages for a
+   plain "EST. year" badge (circle-logo2.svg); an unscoped rule here would
+   force that badge into this gold Diamond Jubilee ring treatment too. */
+.img-box1 .discount-wrapp {
+    position: relative !important;
+    width: 156px !important;
+    height: 156px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    box-shadow: 0 12px 36px rgba(8, 25, 51, 0.22), 0 0 0 2px rgba(212, 175, 55, 0.45) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.img-box1 .discount-wrapp:hover {
+    transform: scale(1.04) !important;
+    box-shadow: 0 16px 44px rgba(8, 25, 51, 0.28), 0 0 0 2px rgba(212, 175, 55, 0.7) !important;
+}
+
+.img-box1 .discount-wrapp .logo {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 94px !important;
+    height: 94px !important;
+    border-radius: 50% !important;
+    background-color: #ffffff !important;
+    border: 2px solid #D4AF37 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 2px !important;
+    z-index: 3 !important;
+    overflow: hidden !important;
+}
+
+.img-box1 .discount-wrapp .logo img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    border-radius: 50% !important;
+}
+
+.img-box1 .discount-tag {
+    color: #081933 !important;
+    font-weight: 800 !important;
+    font-size: 10px !important;
+    letter-spacing: 1.4px !important;
+    text-transform: uppercase !important;
+}
+
+/* Hide stray cartoon clip-art shapes in About Us */
+.about1-area .about-shape-right {
+    display: none !important;
+}
+
+.about1-area .about-shape-left {
+    display: none !important;
+}
+
+/* ==========================================================================
+   HEADER NEWS TICKER — permanently fixed to the top of the viewport so it
+   stays visible on scroll; slightly wider than the old header-top bar
+   (edge-to-edge instead of a constrained container).
+   ========================================================================== */
+:root {
+    --news-ticker-height: 44px;
+}
+
+body {
+    padding-top: var(--news-ticker-height) !important;
+}
+
+.news-ticker-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: var(--news-ticker-height);
+    background: #081933;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.45);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    z-index: 1300;
+    overflow: hidden;
+}
+
+.news-ticker-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 28px;
+    gap: 16px;
+    max-width: 100%;
+}
+
+.news-ticker-label {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: linear-gradient(135deg, #c9002b 0%, #8e001c 100%);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 5px 14px;
+    border-radius: 4px;
+    white-space: nowrap;
+    height: 28px;
+    box-shadow: 0 2px 6px rgba(201, 0, 43, 0.4);
+}
+
+.news-ticker-label i {
+    animation: ticker-pulse 1.8s infinite;
+}
+
+@keyframes ticker-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.85; }
+}
+
+.news-ticker-track-wrap {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.news-ticker-track {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    animation: news-ticker-scroll 40s linear infinite;
+    will-change: transform;
+}
+
+.news-ticker-track:hover {
+    animation-play-state: paused;
+}
+
+.news-ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.94) !important;
+    font-size: 13.5px !important;
+    font-weight: 500;
+    margin-right: 36px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.news-ticker-item:hover {
+    color: #ffdd80 !important;
+    text-decoration: none;
+}
+
+.ticker-pdf-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #d32f2f;
+    color: #ffffff;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+}
+
+.ticker-bullet {
+    color: #d4af37;
+    margin-left: 14px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+@keyframes news-ticker-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* Keep the sticky (scrolled) menu directly under the fixed ticker instead of
+   overlapping it. */
+.sticky-wrapper.sticky {
+    top: var(--news-ticker-height) !important;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --news-ticker-height: 40px;
+    }
+    .news-ticker-inner {
+        padding: 0 12px;
+        gap: 10px;
+    }
+    .news-ticker-label {
+        font-size: 11px !important;
+        padding: 4px 10px !important;
+        height: 24px;
+    }
+    .news-ticker-item {
+        font-size: 12.5px !important;
+        margin-right: 24px;
+    }
+}
+
+/* Extra Compact Phones < 576px — matches the granularity already used for
+   the header/logo breakpoints just above. Drop the "News Alert" text and
+   keep only the icon so the scrolling track gets most of the width instead
+   of being squeezed by a long fixed-width label. */
+@media (max-width: 575px) {
+    :root {
+        --news-ticker-height: 34px;
+    }
+    .news-ticker-inner {
+        padding: 0 8px;
+        gap: 8px;
+    }
+    .news-ticker-label {
+        padding: 0 !important;
+        height: 22px !important;
+        width: 22px !important;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    .news-ticker-label-text {
+        display: none;
+    }
+    .news-ticker-item {
+        font-size: 11.5px !important;
+        margin-right: 18px;
+    }
+    .ticker-pdf-badge span,
+    .ticker-pdf-badge {
+        font-size: 9px !important;
+        padding: 1px 5px !important;
+    }
+}
+
+/* Ultra small screens < 360px */
+@media (max-width: 359px) {
+    :root {
+        --news-ticker-height: 30px;
+    }
+    .news-ticker-inner {
+        padding: 0 6px;
+        gap: 6px;
+    }
+    .news-ticker-label {
+        height: 20px !important;
+        width: 20px !important;
+    }
+    .news-ticker-label i {
+        font-size: 11px;
+    }
+    .news-ticker-item {
+        font-size: 11px !important;
+        margin-right: 14px;
+    }
+}
+
+/* ==========================================================================
+   Department Inner-Page & Two-Column Sidebar Layout
+   ========================================================================== */
+.dept-sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+}
+
+.dept-nav-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.dept-nav-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.dept-nav-header {
+    background: linear-gradient(135deg, #0b3b24 0%, #155734 100%);
+    padding: 24px 20px;
+    color: #ffffff;
+    position: relative;
+}
+
+.dept-nav-header::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.dept-nav-pills {
+    padding: 10px;
+}
+
+.dept-nav-pills .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #334155;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.dept-nav-pills .nav-link i {
+    font-size: 16px;
+    width: 22px;
+    text-align: center;
+    color: #1b5e20;
+    transition: all 0.22s ease;
+}
+
+.dept-nav-pills .nav-link:hover {
+    background: #f0fdf4;
+    color: #0b3b24;
+    transform: translateX(4px);
+}
+
+.dept-nav-pills .nav-link:hover i {
+    transform: scale(1.15);
+}
+
+.dept-nav-pills .nav-link.active {
+    background: linear-gradient(135deg, #0b3b24 0%, #175438 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 16px rgba(11, 59, 36, 0.22);
+}
+
+.dept-nav-pills .nav-link.active i {
+    color: #86efac !important;
+}
+
+.dept-tab-content {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+    min-height: 500px;
+}
+
+.dept-pane-header {
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+}
+
+.dept-pane-body {
+    color: #374151;
+    font-size: 15.5px;
+    line-height: 1.75;
+}
+
+.dept-pane-body h3, 
+.dept-pane-body .h5, 
+.dept-subheading {
+    color: #0b3b24;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.dept-pane-body p {
+    margin-bottom: 1.1rem;
+}
+
+.dept-pane-body ul, 
+.dept-pane-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.dept-pane-body li {
+    margin-bottom: 0.5rem;
+}
+
+/* Enhanced Table Styling in Department Tabs */
+.dept-pane-body .table-responsive {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.dept-pane-body .table {
+    margin-bottom: 0;
+    font-size: 14.5px;
+}
+
+.dept-pane-body .table thead th,
+.dept-pane-body .table tr:first-child td {
+    background-color: #0b3b24;
+    color: #ffffff;
+    font-weight: 600;
+    border-color: #175438;
+}
+
+.dept-pane-body .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #f8fafc;
+}
+
+.dept-pane-body .table td, 
+.dept-pane-body .table th {
+    padding: 10px 14px;
+    vertical-align: middle;
+}
+
+/* Department PDF & Profile Link Badges */
+.dept-pdf-badge, 
+.dept-pane-body a[href$=".pdf"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    border-radius: 50px;
+    padding: 3px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 2px 4px;
+    transition: all 0.2s ease;
+}
+
+.dept-pdf-badge:hover, 
+.dept-pane-body a[href$=".pdf"]:hover {
+    background: #065f46;
+    color: #ffffff;
+    border-color: #065f46;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(6, 95, 70, 0.2);
+}
+
+.dept-pdf-badge i, 
+.dept-pane-body a[href$=".pdf"]::before {
+    content: "\f1c1";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #dc2626;
+    margin-right: 2px;
+}
+
+.dept-pdf-badge:hover i {
+    color: #ffffff;
+}
+
+/* Quick Contact Card */
+.dept-contact-quick-card {
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: #f8fafc;
+    border-radius: 18px;
+    transition: all 0.25s ease;
+}
+
+.dept-contact-quick-card:hover {
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 991px) {
+    .dept-sidebar {
+        position: static;
+        margin-bottom: 24px;
+    }
+    .dept-nav-pills {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        gap: 8px;
+    }
+    .dept-nav-pills .nav-link {
+        width: auto;
+        white-space: nowrap;
+        margin-bottom: 0;
+    }
+}
+
+/* ==========================================================================
+   Mobile safety net for department/legacy page content (.uok-dynamic-page).
+   That content comes from the database or legacy_html and isn't hand-tuned
+   per page, so any wide table (course schedules, statistics, etc.) would
+   otherwise get crushed into illegible columns at narrow widths. Making the
+   table itself the scroll container (display:block + overflow-x) needs no
+   wrapper markup and only changes behavior below the tablet breakpoint.
+   ========================================================================== */
+@media (max-width: 767px) {
+    .uok-dynamic-page table {
+        display: block;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .uok-dynamic-page iframe,
+    .uok-dynamic-page embed,
+    .uok-dynamic-page object {
+        max-width: 100%;
+    }
+}
+
+/* ==========================================================================
+   Homepage "Our Faculties" cards (.academic-card, in the academics swiper).
+   The slider runs with autoHeight:true, and Swiper's own .swiper-autoheight
+   CSS sets align-items:flex-start on the wrapper specifically so slides do
+   NOT stretch to a common height. Since each faculty's description/Dean
+   name is a different length, the 9 boxes ended up with different heights
+   and raggedly-placed "Discover" buttons instead of lining up. Restoring
+   stretch for this slider (so every box matches the tallest one) and
+   pinning the meta row to the bottom keeps all 9 faculty boxes symmetric.
+   ========================================================================== */
+.academic-wrapp .swiper-wrapper {
+    align-items: stretch;
+}
+.academic-wrapp .academic-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.academic-wrapp .academic-content {
+    flex: 1 1 auto;
+}
+.academic-wrapp .academic-meta-wrap {
+    margin-top: auto;
+}
+
